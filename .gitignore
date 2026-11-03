@@ -1,0 +1,9 @@
+# Quarto generated files
+.quarto/
+_site/
+
+# R/RStudio session files
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
