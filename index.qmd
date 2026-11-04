@@ -1,9 +1,6 @@
 ---
 title: "Exploring and Predicting Using Linear Regression in jamovi"
 subtitle: "Literal migration draft from the SPSS workshop"
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-format: html
 ---
 
 ::: {.callout-warning title="Migration draft"}
