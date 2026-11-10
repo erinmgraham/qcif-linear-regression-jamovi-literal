@@ -96,8 +96,6 @@ To view and copy the Syntax code:
 <!-- References -->
 ### References
 
-SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
 > **JAMOVI TODO:** add links to new references
 
 
@@ -287,18 +285,17 @@ Checking distribution of variables: Shapiro-Wilk test for Normality.
 
 ![](images/01-jamovi-data-ex-1-descriptives.png)
  
-The jamovi **Results** panel will display a **Descriptives** table, histogram, and normality plots (Normal Q-Q plots) for each of
-the variables selected.
+The **Results** panel will display a **Descriptives** table, histogram, and normality plots (Normal Q-Q plots) for each of the variables selected.
 
 Do they look normally distributed?
  
-  ::: {layout-ncol=2}
+::: {layout-ncol=2}
 
-  ![](images/01-jamovi-data-ex-1-plots-histogram-age.png)
+![](images/01-jamovi-data-ex-1-plots-histogram-age.png)
 
-  ![](images/01-jamovi-data-ex-1-plots-histogram-trestbps.png)
+![](images/01-jamovi-data-ex-1-plots-histogram-trestbps.png)
 
-  :::
+:::
 
 ::: {.callout-warning title="Recommendation"}
 We highly recommend that you always plot your variables and their
@@ -313,13 +310,13 @@ For brevity, we will not be doing this for every example in this workshop.
 <!-- Descriptives -->
 ## Descriptives table
 
-The results of the Shapiro-Wilk test are presented in the **Descriptives** table in the jamovi **Results** panel.
+The results of the Shapiro-Wilk test are presented in the **Descriptives** table in the **Results** panel.
 
   ![](images/01-jamovi-data-ex-1-descriptives-shapiro.png)
   
 Both variables have a p-value of $p < 0.05$. 
 
-Therefore We msut use the Spearman’s test.                         
+Therefore we must use Spearman’s test.                         
 
 
 <!--Spearman -->
@@ -343,9 +340,9 @@ There is a weak positive correlation between age and resting SBP
 
 
 <!-- Save -->
-## Save the jamovi analysis
+## Save the analysis
 
-jamovi keeps the data, analyses and results together in a single .omv file. Saving the file allows you to reopen the analysis later with the results and analysis settings intact.
+jamovi keeps the data, analyses and results together in a single `.omv` file. Saving the file allows you to reopen the analysis later with the results and analysis settings intact.
 
 Let’s now save this file as well.
 
@@ -414,7 +411,8 @@ Part 3: Multiple Linear Regression
 
 ![](images/01-jamovi-data-ex-1-plots-histogram-age.png)
 
-![](images/01-jamovi-data-ex-1-plots-histogram-age.png)
+![](images/01-jamovi-data-ex-1-plots-histogram-trestbps.png)
+
 :::
 
 <!-- Simple Linear Regression -->
@@ -423,6 +421,7 @@ Part 3: Multiple Linear Regression
 In correlation, the two variables are treated as equals.
 
 In regression, one variable is considered as:
+
 - **Independent variable $X$** (predictor)
 - **Dependent variable $Y$** (outcome)
 
@@ -466,6 +465,7 @@ explains the relationship.
 
 ![Not good](images/02-slr-fig-best-not-good.png)
 ![Good](images/02-slr-fig-best-good.png)
+
 :::
 
 Line can then be used to predict $Y$ from $X$.
@@ -478,7 +478,7 @@ A good line is the one that minimises the **sum of squared
 differences** between the points and the line.
 
 The smaller the sum of squared differences, the better the fit of
-the line to the data,
+the line to the data.
 
 __Sum of squared differences:__
 Green line:
