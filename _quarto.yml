@@ -8,3 +8,5 @@ format:
   html:
     toc: true
     toc-depth: 3
+    toc-title: "Contents"
+    toc-expand: true

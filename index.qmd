@@ -5,1224 +5,533 @@ subtitle: "Literal migration draft from the SPSS workshop"
 
 ::: {.callout-warning title="Migration draft"}
 This version deliberately preserves the original slide order, repeated signposting, exercises and wording as closely as possible. SPSS interface images/actions are marked for replacement with jamovi equivalents. Statistical content is not silently redesigned; items needing review are marked separately.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
 :::
 
-<!-- Original slide 1 -->
-## Original slide 1
+# Exploring and Predicting Using Linear Regression in jamvi
 
-Exploring and Predicting
-Using
-Linear Regression in SPSS
+We acknowledge and celebrate the First Australians on whose traditional lands we meet, and we pay our respect to the Elders past and present.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+<!-- Overview -->
+## Overview
 
-We acknowledge and celebrate the First
-Australians on whose traditional lands we
-meet, and we pay our respect to the Elders past
-and present.
+### Part 1: Correlation
 
-
-
-1
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 1.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 2 -->
-## Original slide 2
-
-This presentation in its entirety is under the CC BY-NC-ND 3.0 AU licence.
-2
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 2.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 3 -->
-## Original slide 3
-
-Overview
-Part 1: Correlation
 1. Pearson’s correlation coefficient
 2. Spearman’s correlation coefficient
-Part 2: Simple Linear Regression
+
+### Part 2: Simple Linear Regression
+
 1. Least squares estimation
 2. Hypothesis testing
 3. Example
-Part 3: Multiple Linear Regression
+
+### Part 3: Multiple Linear Regression
+
 1. Assumptions
 2. Example
-3
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 3.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 4 -->
-## Original slide 4
-
+::: {.callout-warning title="SPSS License"}
 Reminder
-If you are using a university license to run SPSS, you may find that
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-you can only run it if you are connected to your university
-network – this can be either through a direct on-campus ethernet
-cable, or by connecting to the university VPN if you are on a
-wireless network or off campus.
+If you are using a university license to run SPSS, you may find that you can only run it if you are connected to your university network –this can be either through a direct on-campus ethernet cable, or by connecting to the university VPN if you are on a wireless network or off campus.
+:::
 
+<!-- Agenda -->
+## Agenda
 
-
-
-4
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 4.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 5 -->
-## Original slide 5
-
-Agenda
-Exploring and Predicting using Linear Regression in jamovi
-09.00        •   Welcome and introduction
-- Background theory - Correlation
-- Correlation Exercise
-10.30                                    Morning Tea
-11.00        •   Simple Linear Regression - Theory
-- Exercises
-12.30                                       Lunch
-13.30        •   Multiple Linear Regression - Theory
-- Exercise
-15.00                                   Afternoon Tea
-15.30        •   Extended Exercises (Betaplasma)
-17.00        •   Close                                     5
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 5.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 6 -->
-## Original slide 6
-
-Starting jamovi
+| Time | Topic |
+|---|---|
+| 09:00 | Welcome, correlation theory and Exercises 1-2 |
+| 10:30 | Morning tea |
+| 11:00 | Simple linear regression and Exercises 3-4 |
+| 12:30 | Lunch |
+| 13:30 | Multiple linear regression and Exercise 5 |
+| 15:00 | Afternoon tea |
+| 15:30 | Extended beta-carotene exercise |
+| 17.50 | Post-workshop survey |
+| 17:00 | Close |
 
 
+<!-- Starting jamovi -->
+## Starting jamovi
+
+![Jamovi Start](images/00-jamovi-start.png)
 
 
-Click on Close button in the bottom right corner.
-6
+<!-- Data -->
+### Open today’s data file
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 6.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 7 -->
-## Original slide 7
-
-Open today’s data file
-1   Download the workshop materials into your local drive.
-
-2   In the top Menu select File > Open > Data.
-
-3   In the Data folder select and Open the file
+1. Download the workshop materials into your local drive.
+2. At the top left hand corner, select from the File menu *(☰) > Open > <path to data folder>*.
+3. In the Data folder select and *Open* the file.
 LRinSPSS_Workshop_Data_SBP.sav
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+<!-- jamovi GUI -->
+### jamovi Graphical User Interface (GUI)
+
+- Data View window (where the data is stored)
+- Variable View window (who the data is defined)
+- Menu (File Edit View Data … etc.)
+- Drop-down options
+- Dialog boxes
+- Output window (script and results)
+- Help
+
+<!-- jamovi syntax -->
+### jamovi Syntax
+
+jamovi syntax is based on the *R programming language*, which provides an alternative to the drop-down menus for data manipulation and statistical analyses.
+
+The Syntax mode window is accessed by clicking the Application menu *(:)* and ticking the *Syntax mode* check box. This is where users can view and copy the underlying R code for their analyses.
+
+In jamovi, the syntax is automatically generated as you use the user interface.
+
+To view and copy the Syntax code:
+
+- Toggle Syntax Mode: Click the Application menu *(:)*
+- Enable R Code: Check the box next to Syntax mode
+- Extract Code: Right-click on any analysis output and select Copy syntax
+
+<!-- jamovi references -->
+### jamovi References
+
+SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
+
+> **JAMOVI TODO:** add links to new references
 
 
+<!-- Exercise 1 -->
+## Exercise 1 Determinants of Resting Systolic Blood Pressure
 
-
-7
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 7.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 8 -->
-## Original slide 8
-
-jamovi Graphical User Interface (GUI)
-- Data View window (where the data is stored).
-- Variable View window (who the data is defined).
-- Menu (File Edit View Data … etc.).
-- Drop-down options.
-- Dialog boxes.
-- Output window (script and results).
-- Help.
-
-
-8
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 8.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 9 -->
-## Original slide 9
-
-SPSS Syntax
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-- SPSS syntax is a programming language unique to SPSS that
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-can be used as an alternative to the drop-down menus for
-data manipulation and statistical analyses.
-- The Syntax Editor window is where users can write, debug,
-and execute SPSS syntax.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-- In the latest versions of SPSS the Syntax is not automatically
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-generated.
-- To generate the Syntax code: Edit > Options > Viewer (tab) >
-Tick Display Commands in the Log > OK.
-9
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 9.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 10 -->
-## Original slide 10
-
-SPSS References
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-- SPSS Data Sheet
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-- Laerd Statistics
-- SPSS Statistics Coach
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-- Discovering Statistics by Andy Field
-
-
-
-
-10
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 10.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 11 -->
-## Original slide 11
-
-Exercise 1
-Determinants of Resting Systolic Blood Pressure
-- Cross-sectional study investigating the relationship between resting
-systolic blood pressure (SBP) and various risk factors.
+- Cross-sectional study investigating the *relationship* between *resting
+systolic blood pressure (SBP)* and *various risk factors*.
 
 - N = 100 heart disease patients from Cleveland, USA.
 
-- Original data has 300 participants which was truncated for our
-exercise.
-Data can be found at kaggle:
-https://www.kaggle.com/kingabzpro/heart-disease-from-cleveland
+- [Original data](https://www.kaggle.com/kingabzpro/heart-disease-from-cleveland) has 300 participants which was truncated for our exercise. 
 
+<!-- data dictionary -->
+### Data dictionary
 
-11
+| Variable | Description | Suggested measure type |
+|---|---|---|
+| `age` | Age in years | Continuous |
+| `sex` | 0 = female, 1 = male | Nominal |
+| `cp` | Chest pain category | Nominal |
+| `trestbps` | Resting systolic BP in mmHg | Continuous |
+| `chol` | Blood cholesterol in mg/dL | Continuous |
+| `fbs` | Fasting blood sugar: 0 = <=120 mg/dL, 1 = >120 mg/dL | Nominal |
+| `exang` | Exercise-induced angina: 0 = no, 1 = yes | Nominal |
+| `thalach` | Maximum heart rate achieved in bpm | Continuous |
+| `oldpeak` | ST-wave depression induced by exercise | Continuous |
+| `slope` | Peak exercise ST-segment slope | Ordinal |
+| `ca` | Number of major vessels coloured by fluoroscopy | Ordinal |
+| `class` | Diagnosis: 0 = no disease, 1 = disease | Nominal |
+| `restecg` | Resting ECG category | Nominal |
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 11.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
+<!-- overview -->
+## Overview
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+**Part 1: Correlation**
 
-<!-- Original slide 12 -->
-## Original slide 12
+**1. Pearson’s correlation coefficient**
+**2. Spearman’s correlation coefficient**
 
-Exercise 1
-Data dictionary
-Variable      Description
-age           Age in years
-sex           Sex; 0=Female, 1=Male
-cp            Chest Pain; 1=Typical Angina, 2=Atypical Angina, 3=Non-Anginal pain, 4=Asymptomatic
-trestbps      Resting Systolic BP in mmHg
-chol          Blood Cholesterol Level in mg/dl
-fbs           Fasting Blood Sugar; 0 = less than 120mg/dl and 1= greater than 120 mg/dl
-exang         Exercise Induced Angina; 0=No, 1=Yes
-thalach       Maximum Heart Rate Achieved in bpm
-oldpeak       ST wave depression induced by exercise
-slope         The slope of peak exercise segment; 1=Up-sloping, 2=Flat, 3=Down Sloping
-ca            Number of major vessels coloured by fluoroscopy
-class         Diagnosis Class; 0=No disease, 1=Disease
-restecg       Resting ECG abnormalities; 0= Normal, 1=ST Abnormality, 2=LVH
-Colour code: Continuous variable Categorical variable
-12
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 12.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 13 -->
-## Original slide 13
-
-Overview
-Part 1: Correlation
-1. Pearson’s correlation coefficient
-2. Spearman’s correlation coefficient
 Part 2: Simple Linear Regression
 1. Least squares estimation
 2. Hypothesis testing
 3. Example
+
 Part 3: Multiple Linear Regression
 1. Assumptions
 2. Example
-13
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 13.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
+## Correlation
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+![](images/01-correlation_cartoon.png)
 
-<!-- Original slide 14 -->
-## Original slide 14
+<!-- Introduction -->
+### Introduction
 
-Correlation
-
-
-
-
-14
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 14.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 15 -->
-## Original slide 15
-
-Introduction
 - Two quantitative measurements can be related.
+- They are called the *dependent* variable (Y) and the *independent*
+variable ($X$).
 
-- They are called the dependent variable (Y) and the independent
-variable (X).
+Q How can you describe the relationship between two numerical variables?
 
-- How can you describe the relationship between two numerical
-variables?
-- Correlation: Describes the degree of association between variables.
-- Regression: Describes the effect of variable X on variable Y.
+- *Correlation*: Describes the degree of *association* between variables.
+- *Regression*: Describes the *effect* of variable $X$ on variable Y.
 
-15
+<!-- Correlation -->
+### Correlation
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 15.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
+A *correlation* measures the “degree of association” between two variables.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+Associations can be:
 
-<!-- Original slide 16 -->
-## Original slide 16
+- *Positive*: An increase in one variable is associated with an increase in the other.
+- *Negative*: An increase in one variable is associated with a decrease in the
+other.
 
-Correlation
-- A correlation measures the “degree of association” between two
-variables.
-
-- Associations can be:
-- Positive (an increase in one variable is associated with an increase in the
-other).
-- Negative (an increase in one variable is associated with a decrease in the
-other).
+![](images/01-correlation_plots_pos_neg_none.png)
 
 
+<!-- Parametric & Non-Parametric -->
+### Parametric & Non-Parametric
 
-
-16
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 16.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 17 -->
-## Original slide 17
-
-Correlation
-Parametric & Non-Parametric
 To measure the “degree of association” between:
-- 2 continuous variables (normally distributed).
-- Pearson’s correlation coefficient
-- 2 continuous variables (non normally distributed).
-- Spearman’s rank
-- 2 categorical variables (ordinal).           Reminder: Normality of
-variables is tested using
-- Kendall’s Tau                          the Shapiro-Wilk test
-Ho : variable normally
-distributed
+
+- *2 continuous* variables (*normally* distributed).
+--> Pearson’s correlation coefficient
+- *2 continuous* variables (*non normally* distributed).
+--> Spearman’s rank
+- *2 categorical* variables (*ordinal*).           
+--> Kendall’s Tau
+
+::: {.callout-warning title="Reminder"}
+Normality of variables is tested using the Shapiro-Wilk test:
+Ho:variable normally distributed
+:::
+
+<!-- Correlation-coefficient$r$-->
+### Correlation-coefficient r
+
+The *Pearson’s correlation coefficient* is defined as:
+
+$$r = \frac{\sum (x - \bar{x})(y - \bar{y})}{\sqrt{\sum (x - \bar{x})^2 \sum (y - \bar{y})^2}}$$
 
 
-17
+It describes *how $Y$ varies with $X$* (numerator):
+$-1 \leq r \leq 1$
+$r = -1$   # 100% negative correlation
+$r = 1$     # 100% positive correlation
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 17.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
+<!-- Interpreting $r$-->
+### Interpreting $r$
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+| Value | Interpretation |
+|---|---|
+| $r = 0$ | no relationship |
+| $\lvert r \rvert = 1$ | perfect linear relationship |
+| $\lvert r \rvert < 0.3$ | weak relationship |
+| $0.3 \leq \lvert r \rvert \leq 0.7$ | moderate relationship |
+| $\lvert r \rvert > 0.7$ | strong relationship |
 
-<!-- Original slide 18 -->
-## Original slide 18
+The *P-value* assigned to $r$ tells us how likely $r$ is right (i.e., confidence in our statement).
 
-Correlation
-Correlation-coefficient r
-- The Pearson’s correlation coefficient is defined as:
-∑(𝑥𝑥𝑖𝑖 − ̅
-𝑥𝑥)(𝑦𝑦𝑖𝑖 − �
-𝑦𝑦)
-𝑟𝑟 =
-∑(𝑥𝑥𝑖𝑖 − 𝑥𝑥)̅ 2 ∑(𝑦𝑦𝑖𝑖 − �
-𝑦𝑦)2
-- Describes how y varies with x (numerator):
--1 ≤ r ≤ 1
-r = -1  100% negative correlation
-r = 1  100% positive correlation
+<!-- Coefficient of determination $r^2$ -->
+### Coefficient of determination r^2
 
+Pearson’s $r$ can be squared, $r^2$, to derive a *coefficient of determination*.
 
-18
+It explains the portion of variability in one of the variables that can be accounted for by the variability in the second one.
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 18.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
+Example: Correlation between 2 variables $X$ and $Y$
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+Pearson’s coefficient: $r$ = -0.7 --> $r^2$ = 0.49
 
-<!-- Original slide 19 -->
-## Original slide 19
+49% of the variability in variable $X$ is determined by the variability of
+variable $Y$.
 
-Correlation
-Interpreting r
-- r=0                 no relationship
-- |r| = 1              perfect linear relationship
-- |r| < 0.3            weak relationship
-- 0.3 ≤ |r| ≤ 0.7      moderate relationship
-- |r| > 0.7            strong relationship
+<!-- Visualization -->
+### Visualization of Relation between two variables
 
-- P-value assigned to r tells us how likely r is right
-- confidence in our statement
-
-
-19
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 19.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 20 -->
-## Original slide 20
-
-Correlation
-Coefficient of determination r2
-Pearson’s r can be squared, r2, to derive a coefficient of determination.
-- Portion of variability in one of the variables that can be accounted
-for by the variability in the second one.
-
-Example: Correlation between 2 variables X and Y
-Pearson’s coefficient: r = -0.7  r2 = 0.49
-- 49% of the variability in variable X is determined by the variability of
-variable Y.
-
-
-20
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 20.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 21 -->
-## Original slide 21
-
-Visualization of Relation between two variables
 Scatter-plot
-- Displays the relationship between two continuous variables.
 
+- Displays the relationship between *2 continuous variables*.
 - Each point represents the paired value of the variables for each
 individual.
-
 - Useful in the early stage of analysis when exploring data and
 determining if a linear regression analysis is appropriate.
 
+![](images/01-correlation_plots_r.png)
 
+<!-- Exercise 1 -->
+## Exercise 1 Are age and resting systolic blood pressure (SBP) correlated?
 
-21
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 21.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 22 -->
-## Original slide 22
-
-Visualization of Relation between two variables
-Scatter-plot
-
-
-
-
-Strong relationship   Weak relationship     No relationship
-
-
-
-
-22
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 22.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 23 -->
-## Original slide 23
-
-Exercise 1
-
-
-
-Are Age and Resting Systolic Blood
-Pressure (SBP) correlated?
-
-
-
-
-23
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 23.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 24 -->
-## Original slide 24
-
-Exercise 1
 SBP and Age
 
+![](images/01-jamovi-data-ex-1-age-trestbps.png)
 
 
+### Visualisation with scatter plots
 
-24
+1. From the top menu, select *Plots > Scatter Plot*.
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 24.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
+![](images/01-jamovi-data-ex-1-plots-scatter.png)
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
 
-<!-- Original slide 25 -->
-## Original slide 25
+2. Move `age` into X-axis and `trestbps` to Y-axis produce a basic Scatter Plot.
 
-Exercise 1
-Visualisation with scatter plots
-1 Click Graphs > Chart Builder … in the top menu.
+![](images/01-jamovi-data-ex-1-plots-scatter-vars.png)
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
 
+3. Under *General Options* check the box to *Show line*.
 
+- Choose *Linear* for the Method
+- Choose with or without Confidence interval
 
+![](images/01-jamovi-data-ex-1-plots-scatter-line.png)
 
-25
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 25.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
+<!-- Normality -->
+## Normality Check - Shapiro-Wilk test
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+Checking distribution of variables: Shapiro-Wilk test for Normality.
 
-<!-- Original slide 26 -->
-## Original slide 26
+1. Select *Analyses > Exploration > Descriptives*.
+2. Move `age` and `trestbps` into *Variables*.
+3. Under *Statistics*, select *Shapiro-Wilk test*.
+4. Under *Plots*, select *Histogram* and *Q-Q plot*.
 
-Exercise 1
-Visualisation with scatter plots
-2 Click OK.
-
-
-
-
-26
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 26.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 27 -->
-## Original slide 27
-
-Exercise 1
-Visualisation with scatter plots
-3 This screen appears.
-
-
-
-
-27
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 27.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 28 -->
-## Original slide 28
-
-Exercise 1
-Visualisation with scatter plots
-4 Choose option
-Scatter/Dot in Gallery.
-
-5 Drag-and-Drop the icon
-into the Chart Preview
-Area.
-
-
-
-
-28
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 28.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 29 -->
-## Original slide 29
-
-Exercise 1
-Visualisation with scatter plots
-6 Drag-and-drop         in
-the X-axis box and
-in the Y-axis
-box.
-
-7 Tick the Linear Fit Lines:
-Total Box
-
-
-
-
-29
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 29.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 30 -->
-## Original slide 30
-
-Exercise 1
-Visualisation with scatter plots
-8 Click OK.
-
-
-
-
-30
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 30.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 31 -->
-## Original slide 31
-
-Exercise 1
-Checking distribution of variables: Shapiro-Wilk test for Normality
-1 Click Analyze > Descriptive Statistics > Explore in the top menu.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-
-
-
-31
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 31.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 32 -->
-## Original slide 32
-
-Exercise 1
-Checking distribution of variables: Shapiro-Wilk test for Normality
-2 Transfer the variables    and        into the Dependent List
-box by selecting them and clicking on (one by one).
-
-3 Click Plots.
-
-
-
-
-32
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 32.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 33 -->
-## Original slide 33
-
-Exercise 1
-Checking distribution of variables: Shapiro-Wilk test for Normality
-4 Tick the Normality plots with tests and Histogram boxes. Untick
-Stem-and-leaf box.
-
-5 Click Continue then OK.
-
-
-
-
-33
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 33.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 34 -->
-## Original slide 34
-
-Exercise 1
-Checking distribution of variables: Histogram
-SPSS Output window will display Descriptives table, as well as the
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-normality plots (Normal Q-Q plots), histogram, and box plot for each of
+![](images/01-jamovi-data-ex-1-descriptives.png)
+ 
+The jamovi *Results* panel will display a *Descriptives* table, histogram, and normality plots (Normal Q-Q plots) for each of
 the variables selected.
 
-
-
-
 Do they look normally distributed?
-34
+ 
+  ::: {layout-ncol=2}
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 34.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
+  ![](images/01-jamovi-data-ex-1-plots-histogram-age.png)
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+  ![](images/01-jamovi-data-ex-1-plots-histogram-trestbps.png)
 
-<!-- Original slide 35 -->
-## Original slide 35
+  :::
 
-Recommendation
+::: {.callout-warning title="Recommendation"}
 We highly recommend that you always plot your variables and their
 relationships as well summarize them in statistical tables before
 conducting a statistical test.
 
-This gives you a reference point and helps identify if you make an error
-in the statistical test.
+This gives you a reference point and helps identify if you make an error in the statistical test.
 
-For brevity, we will not be doing this for every example in this
-workshop.
+For brevity, we will not be doing this for every example in this workshop.
+:::
 
-35
+<!-- Descriptives -->
+## Descriptives table
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 35.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
+The results of the Shapiro-Wilk test are presented in the *Descriptives* table in the jamovi *Results* panel.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+  ![](images/01-jamovi-data-ex-1-descriptives-shapiro.png)
+  
+Both variables have a p-value of $p < 0.05$. 
 
-<!-- Original slide 36 -->
-## Original slide 36
-
-Exercise 1
-Checking distribution of variables: Shapiro-Wilk test for Normality
-SPSS Output window will display Descriptives table, as well as the
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-normality plots (Normal Q-Q plots), histogram, and box plot for each of
-the variables selected.
-
-Results of the Shapiro-Wilk test are presented in the Tests of Normality
-table.
+Therefore We msut use the Spearman’s test.                         
 
 
+<!--Spearman -->
+## Spearman's
+
+1. Select *Analyses > Regression > Correlation Matrix*.
+2. Move `age` and `trestbps` into *Variables*.
+3. Under *Correlation Coefficients*, check *Spearman*.
 
 
-Both variables have a p-value (“sig”) of < 0.05. We use the Spearman’s
-test.                                                                      36
+![](images/01-jamovi-data-ex-1-correlation_matrix_spearman.png)
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 36.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 37 -->
-## Original slide 37
-
-Exercise 1
-Correlation analysis
-1 Click Analyze > Correlate > Bivariate… on the top menu
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-
-
-
-37
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 37.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 38 -->
-## Original slide 38
-
-Exercise 1
-Correlation analysis
-2 Transfer the variables      and     into the Variables box by
-selecting them and clicking on (one by one).
-
-3 Untick Pearson and tick Spearman.
-
-
-
-
-38
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 38.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 39 -->
-## Original slide 39
-
-Exercise 1
-Correlation analysis
-4 Click OK.
-
-
-
+![](images/01-jamovi-data-ex-1-spearman.png)
 
 Interpretation: Spearman’s correlation is used to determine the
-relationship between an individual’s age and their resting systolic BP.
+relationship between an individual’s age and their resting SBP.
+
 There is a weak positive correlation between age and resting SBP
-(r=0.269) and the correlation is significantly different from 0
-(p-value = 0.007).
-39
+($r=0.269$) and the correlation is significantly different from 0
+($p = 0.007$).
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 39.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+<!-- Save -->
+## Save the jamovi analysis
 
-<!-- Original slide 40 -->
-## Original slide 40
+jamovi keeps the data, analyses and results together in a single .omv file. Saving the file allows you to reopen the analysis later with the results and analysis settings intact.
 
-Save the jamovi analysis
-All this time as we have been performing activities in SPSS. SPSS has
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-been logging the commands used by the GUI in the Output window.
 Let’s now save this file as well.
-1 Select the Output window.
 
-2 Click on File > Save As… in the top Menu.
+1. Open the File menu *(☰)* and select *Save As*.
+2. Select *Browse* and navigate to the `Analysis` folder.
+3. Enter a name for the file.
+4. *Save* the file as a jamovi (.omv) file.
 
-3 Navigate to the Analysis folder.
+![](images/01-jamovi-data-ex-1-save-history.png)
 
-4 In the File Name text box type “Analysis”.
+<!-- Exercise 2 - Visualisation --->
+## Exercise 2 Is Systolic Blood Pressure associated with other continuous variables of interest?
 
-40
+Visualisation with matrix of scatter plots.
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 40.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
+1. Select *Analyses > Correlation > Correlation Matrix*.
+2. Move `age`, `chol`, `oldpeak`, `thalach` and `trestbps` into *Variables*.
+3. Under *Plots*, check *Correlation Matrix*.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+![](images/01-jamovi-data-ex-2-matrix-scatterplots.png)
 
-<!-- Original slide 41 -->
-## Original slide 41
+![](images/01-jamovi-data-ex-2-matrix-scatterplots-plot.png)
 
-Save the jamovi analysis
 
+<!-- Exercise 2 - Correlation analyses -->
+## Exercise 2 Is Systolic Blood Pressure associated with other continuous variables of interest?
 
+Correlation analysis of multiple variables.
 
+1. Select *Analyses > Correlation > Correlation Matrix*.
+2. Move `age`, `chol`, `oldpeak`, `thalach` and `trestbps` into *Variables*.
+3. Under *Correlation Coefficients*,uncheck *Pearson* and check *Spearman*.
 
-5 Click Save.
+![](images/01-jamovi-data-ex-2-matrix-scatterplots-analysis.png)
 
-41
+![](images/01-jamovi-data-ex-2-matrix-scatterplots-table.png)
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 41.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+<!-- Break -->
+## Break for Morning Tea
 
-<!-- Original slide 42 -->
-## Original slide 42
+![](images/01-break.jpeg) 
 
-Exercise 2
+<!-- overview -->
+## Overview
 
-
-
-Is Systolic Blood Pressure associated
-with other continuous variables of
-interest?
-
-
-
-
-42
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 42.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 43 -->
-## Original slide 43
-
-Exercise 2
-Visualisation with matrix of scatter plots
-1 Click Graphs > Chart Builder … in the top menu.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-
-
-
-43
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 43.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 44 -->
-## Original slide 44
-
-Exercise 2
-Visualisation with matrix of scatter plots
-2 Click OK.
-
-
-
-
-44
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 44.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 45 -->
-## Original slide 45
-
-Exercise 2
-Visualisation with matrix of scatter plots
-3 This screen appears.
-
-4 Click on Reset.
-
-
-
-
-45
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 45.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 46 -->
-## Original slide 46
-
-Exercise 2
-Visualisation with matrix of scatter plots
-5 Choose option
-Scatter/Dot in Gallery.
-
-6 Drag-and-Drop the icon
-into the Chart Preview
-Area.
-
-
-
-
-46
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 46.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 47 -->
-## Original slide 47
-
-Exercise 2
-Visualisation with matrix of scatter plots
-7 Click and select (holding
-the ctrl key) variables
-,     ,     ,
-, and         .
-Then drag-and-drop the
-selected variables into
-the Scattermatrix? box
-
-8 Tick the Linear Fit Lines:
-Total Box
-47
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 47.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 48 -->
-## Original slide 48
-
-Exercise 2
-Visualisation with matrix of scatter plots
-9 Click OK.
-
-
-
-
-48
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 48.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 49 -->
-## Original slide 49
-
-Exercise 2
-Correlation analysis of multiple variables
-1 Click Analyze > Correlate > Bivariate… on the top menu
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-
-
-
-49
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 49.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 50 -->
-## Original slide 50
-
-Exercise 2
-Correlation analysis of multiple variables
-2 Click on Reset.
-
-3 Transfer the variables       ,      ,
-,        , and        into the
-Variables box by selecting them
-and clicking on (one by one).
-
-4 Untick Pearson and tick Spearman.
-
-
-
-50
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 50.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 51 -->
-## Original slide 51
-
-Exercise 2
-Correlation analysis of multiple variables
-5 Click OK.
-
-
-
-
-51
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 51.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 52 -->
-## Original slide 52
-
-Break for Morning Tea
-
-
-
-
-52
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 52.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 53 -->
-## Original slide 53
-
-Overview
 Part 1: Correlation
+
 1. Pearson’s correlation coefficient
 2. Spearman’s correlation coefficient
-Part 2: Simple Linear Regression
-1. Least squares estimation
-2. Hypothesis testing
-3. Example
+
+**Part 2: Simple Linear Regression**
+**1. Least squares estimation**
+**2. Hypothesis testing**
+**3. Example**
+
 Part 3: Multiple Linear Regression
 1. Assumptions
 2. Example
-53
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 53.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
+<!-- Linear Regression -->
+## Introduction - Linear Regression
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+::: {layout-ncol=2}
 
-<!-- Original slide 54 -->
-## Original slide 54
+![](images/01-jamovi-data-ex-1-plots-histogram-age.png)
 
-Linear Regression
+![](images/01-jamovi-data-ex-1-plots-histogram-age.png)
+:::
 
+<!-- Simple Linear Regression -->
+## Introduction - Simple Linear Regression
 
-
-
-54
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 54.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 55 -->
-## Original slide 55
-
-Simple Linear Regression
 In correlation, the two variables are treated as equals.
 
 In regression, one variable is considered as:
-- Independent variable X (predictor)
-- and the other as dependent variable Y (outcome)
+- **Independent variable $X$** (predictor)
+- **Dependent variable $Y$** (outcome)
 
+### When to use regression analysis?
 
-
-
-55
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 55.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 56 -->
-## Original slide 56
-
-When to use regression analysis?
 Regression analysis is used to describe the relationship between:
 
-- A single outcome variable: 𝑦𝑦, and
-- One or more predictor variables: 𝑥𝑥1 , 𝑥𝑥2 , … , 𝑥𝑥𝑘𝑘
-- If k = 1 : Simple linear regression
-- If 𝑘𝑘 > 1 : Multiple linear regression
+A single outcome variable: $y$, and
+One or more predictor variables: $x_1, x_2, \ldots, x_k$
+
+- If $k = 1$ : Simple linear regression
+- If $k > 1$ : Multiple linear regression
+
+Predicting $Y$ based on a given value of $X$
+
+$X$ = Independent / Predictor variable (continuous, categorical or nominal)
+$Y$ = Dependent / Outcome variable (continuous)    
 
 
+$$
+y = a + bx + e
+$$
+
+where:
+
+- $y$ = the observed value of the outcome variable
+- $a$ = the intercept
+- $b$ = the regression coefficient (slope)
+- $x$ = the value of the predictor variable
+- $e$ = the error or residual
+
+Test of significance: $b$ is significantly different from zero
+
+![](images/02-slr-fig-slope-intercept.png)
 
 
-56
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 56.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 57 -->
-## Original slide 57
-
-Simple Linear Regression
-- Predicting Y based on a given value of X
-X= Independent/Predictor variable
-(continuous, categorical or nominal)
-Y= Dependant/Outcome variable (continuous)                  200
-a: intercept   180
-
-
-- Relationship summarized by an equation:                           160
-
-140
-
-
-𝑦𝑦 = 𝑎𝑎 + 𝑏𝑏𝑏𝑏 + 𝑒𝑒
-120
-
-100
-b: Regression
-a = intercept
-80
-coefficient      60
-
-
-b = Regression coefficient (Slope of the line)
-40
-
-20
-
-0
-0   50   100   150   200   250
-
-
-- Test of significance: b is significantly different from zero
-57
-
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 57.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 58 -->
-## Original slide 58
-
-Simple Linear Regression
 Problem: To draw a straight line through the points that best
-explains the relationship
-Not good                             Good
+explains the relationship.
+
+::: {layout-ncol=2}
+
+![Not good](images/02-slr-fig-best-not-good.png)
+![Good](images/02-slr-fig-best-good.png)
+:::
+
+Line can then be used to predict $Y$ from $X$.
 
 
+<!-- Least Squares Estimation -->
+## Least Squares Estimation
 
+A good line is the one that minimises the *sum of squared
+differences* between the points and the line.
 
-Line can then be used to predict Y from X
-58
+The smaller the sum of squared differences, the better the fit of
+the line to the data,
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 58.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
-
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
-
-<!-- Original slide 59 -->
-## Original slide 59
-
-Least Squares Estimation
-- A good line is the one that minimises the sum of squared
-difference between the points and the line
-
-- The smaller the sum of squared differences the better the fit of
-the line to the data
-Sum of squared differences:
+__Sum of squared differences:__
 Green line:
-(1-4.5)2+(4-4.5)2+(4-4.5)2 +(7-4.5)2+(8-4.5)2 = 31.25
+(1-4.5)^2  +(4-4.5)^2 + (4-4.5)^2 + (7-4.5)^2  +(8-4.5)^2 = 31.25
 
 Blue line:
-(1-2)2+(4-3)2+(4-4.5)2 +(7-6)2+(8-7.5)2 = 3.5
-59
+(1-2)^2 + (4-3)^2 + (4-4.5)^2 + (7-6)^2 + (8-7.5)^2 = 3.5
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 59.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
+![](images/02-slr-fig-best-calculate.png)
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
 
-<!-- Original slide 60 -->
-## Original slide 60
+<!--Background -->
+## Least Squares Estimation (Background Information)
 
-Least Squares Estimation
-(Background Information)
+
 Using calculus, we get:
-∑(𝑥𝑥𝑖𝑖 − ̅𝑥𝑥)(𝑦𝑦𝑖𝑖 − �
-𝑦𝑦) 𝐶𝐶𝐶𝐶𝐶𝐶(𝑥𝑥, 𝑦𝑦)
-𝑏𝑏 =                    2    =
-∑(𝑥𝑥𝑖𝑖 − 𝑥𝑥)̅           𝑉𝑉𝑉𝑉𝑉𝑉(𝑥𝑥)
 
-𝑎𝑎 = 𝑦𝑦� − 𝑏𝑏𝑥𝑥̅
+$$
+b =
+\frac{\sum (x_i - \bar{x})(y_i - \bar{y})}
+     {\sum (x_i - \bar{x})^2}
+=
+\frac{\operatorname{Cov}(x,y)}
+     {\operatorname{Var}(x)}
+$$
 
-Coefficient b is related to the correlation coefficient r:
-If X and Y positively correlated  slope b is positive
+$$
+a = \bar{y} - b\bar{x}
+$$
 
-𝑆𝑆𝑆𝑆𝑥𝑥
-r = 𝑏𝑏
-𝑆𝑆𝑆𝑆𝑦𝑦
-60
+Coefficient $b$ is related to the correlation coefficient $r$.
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 60.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
+If $X$ and $Y$ are positively correlated, then slope `b` is positive.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+$$
+r = b\frac{SD_x}{SD_y}
+$$
 
-<!-- Original slide 61 -->
-## Original slide 61
 
-Regression Hypothesis Tests
+<!-- Hypothesis Tests -->
+## Regression Hypothesis Tests
+
 Is the slope significantly different from 0?
+|  |  |
+|---|---|
+| Hypothesis | H0: b = 0 (no relationship) |
+|  | H1: b ≠ 0 (linear relationship) |
 
-Hypothesis:      H0: b = 0 (no relationship)
-H1: b ≠ 0 (linear relationship)
-Test of significance: T = b/SE(b)
-Result: p-value significant or not
-Conclusion: If p-value significant
- the slope is different from 0
- significant linear relationship
-61
+| Test of significance | T = b/SE(b) |
+| Result | p-value significant or not |
+| Conclusion | the slope is different from 0 |
+|  | significant linear relationship |
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 61.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
 
 <!-- Original slide 62 -->
 ## Original slide 62
@@ -1235,15 +544,15 @@ observed and predicted value
 
 - Check the assumptions of regression by examining the residuals
 - Examine for linearity assumption
-- Examine for constant variance for all levels of X (homoscedasticity)
+- Examine for constant variance for all levels of $X$ (homoscedasticity)
 - Evaluate normal distribution assumption
 - Evaluate independence assumption
 - Check the presence of outliers
 64
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 62.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 63 -->
 ## Original slide 63
@@ -1261,9 +570,9 @@ generalized.
 
 65
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 63.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 64 -->
 ## Original slide 64
@@ -1279,9 +588,9 @@ consumption                                      Heart Disease
 Example from Landwehr & Watkins (1987) and cited in Howell (2004)
 66
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 64.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 65 -->
 ## Original slide 65
@@ -1291,18 +600,18 @@ Example: Effect of cigarette consumption on Coronary Heart Disease
 Research question: How fast does CHD mortality rise depending on
 smoking?
 
-CHD (Y variable) = CHD mortality rate (deaths per 10,000 per year due
+CHD ($Y$ variable) = CHD mortality rate (deaths per 10,000 per year due
 to CHD)
-Cig (X variable) = average number of cigarettes per adult per day
+Cig ($X$) = average number of cigarettes per adult per day
 
 
 
 
 67
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 65.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 66 -->
 ## Original slide 66
@@ -1316,9 +625,9 @@ Scatter Plot with the line that best fits:
 
 68
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 66.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 67 -->
 ## Original slide 67
@@ -1332,15 +641,15 @@ Linear regression equation:
 
 
 Predicted        Intercept:       Slope:
-values           level of Y      rate of increase/
-of Y          when X is 0      decrease of Y predicted
+values           level of $Y$      rate of increase/
+of $Y$          when $X$ is 0      decrease of $Y$ predicted
 for each unit increase
-of X
+of $X$ 
 69
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 67.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 68 -->
 ## Original slide 68
@@ -1358,9 +667,9 @@ consumed         of Cig consumption
 
 70
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 68.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 69 -->
 ## Original slide 69
@@ -1377,9 +686,9 @@ P-value < 0.05  b is significantly different from 0
 There is a significant linear relationship between Cig consumption
 and CHD mortality                                                       71
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 69.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 70 -->
 ## Original slide 70
@@ -1399,9 +708,9 @@ consumption” units.
 
 72
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 70.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 71 -->
 ## Original slide 71
@@ -1422,9 +731,9 @@ country with an average consumption of 6 cigarettes per adult.
 
 73
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 71.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 72 -->
 ## Original slide 72
@@ -1443,9 +752,9 @@ and predicted values
 
 74
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 72.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 73 -->
 ## Original slide 73
@@ -1455,7 +764,7 @@ Example: Effect of cigarette consumption on Coronary Heart Disease
 
 Accuracy of prediction (residuals):
 
-X= 6 cigarettes per adult per day
+X = 6 cigarettes per adult per day
 
 Prediction: 14.61 deaths / 10,000
 
@@ -1466,9 +775,9 @@ Residual error for this case:
 23-14.61 = 8.39
 75
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 73.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 74 -->
 ## Original slide 74
@@ -1488,9 +797,9 @@ with variability in smoking rates.
 
 76
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 74.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 75 -->
 ## Original slide 75
@@ -1507,9 +816,9 @@ associated with Age?
 
 77
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 75.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 76 -->
 ## Original slide 76
@@ -1524,9 +833,9 @@ The scatter plot allows one to check if there is a linear relationship
 
 78
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 76.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 77 -->
 ## Original slide 77
@@ -1551,9 +860,9 @@ a: intercept
 
 79
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 77.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 78 -->
 ## Original slide 78
@@ -1562,16 +871,16 @@ Exercise 3
 Estimation of parameters
 1 Click Analyze > Regression > Linear in the top menu.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
 
 
 
 
 80
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 78.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 79 -->
 ## Original slide 79
@@ -1585,9 +894,9 @@ Estimation of parameters
 
 81
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 79.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 80 -->
 ## Original slide 80
@@ -1607,9 +916,9 @@ clicking .
 
 82
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 80.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 81 -->
 ## Original slide 81
@@ -1630,9 +939,9 @@ and Confidence intervals
 
 83
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 81.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 82 -->
 ## Original slide 82
@@ -1651,9 +960,9 @@ that Age accounts for 9% of the variation of SBP.
 
 84
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 82.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 83 -->
 ## Original slide 83
@@ -1670,9 +979,9 @@ that the regression model predicts SBP significantly well.
 
 85
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 83.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 84 -->
 ## Original slide 84
@@ -1693,9 +1002,9 @@ by one year increase in age.
 
 86
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 84.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 85 -->
 ## Original slide 85
@@ -1706,7 +1015,7 @@ Confidence and prediction
 estimate parameter. The standard error for a CI takes into account
 the uncertainty due to sampling.
 - Prediction intervals tell where you can expect to see the next data
-point sampled (give a range for y itself). The standard error for a PI
+point sampled (give a range for $y$ itself). The standard error for a PI
 takes into account the uncertainty due to sampling + the variability
 of the individuals around the predicted mean.
 - Both intervals will be centered around the same value, but the
@@ -1714,9 +1023,9 @@ standard errors will be different. A prediction interval is always
 wider than a confidence interval.
 87
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 85.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 86 -->
 ## Original slide 86
@@ -1725,7 +1034,7 @@ Exercise 3
 Confidence and prediction
 1 Click Analyze > Regression >
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
 Linear in the top menu.
 
 2 Check that the Linear
@@ -1737,9 +1046,9 @@ changed.
 
 88
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 86.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 87 -->
 ## Original slide 87
@@ -1759,9 +1068,9 @@ Unstandardized.
 
 89
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 87.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 88 -->
 ## Original slide 88
@@ -1775,9 +1084,9 @@ Confidence and prediction
 
 90
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 88.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 89 -->
 ## Original slide 89
@@ -1799,9 +1108,9 @@ New variables were generated:
 
 91
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 89.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 90 -->
 ## Original slide 90
@@ -1820,9 +1129,9 @@ Violations:
 - Outliers.
 92
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 90.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 91 -->
 ## Original slide 91
@@ -1845,9 +1154,9 @@ predictor:
 plot.
 93
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 91.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 92 -->
 ## Original slide 92
@@ -1875,9 +1184,9 @@ predictor:
 plot
 94
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 92.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 93 -->
 ## Original slide 93
@@ -1907,9 +1216,9 @@ predictor:
 plot
 95
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 93.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 94 -->
 ## Original slide 94
@@ -1932,9 +1241,9 @@ predictor:
 plot
 96
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 94.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 95 -->
 ## Original slide 95
@@ -1943,16 +1252,16 @@ Exercise 3
 Linearity between outcome and predictors
 1 Click Graphs > Chart Builder … in the top menu.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
 
 
 
 
 97
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 95.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 96 -->
 ## Original slide 96
@@ -1966,9 +1275,9 @@ Linearity between outcome and predictors
 
 98
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 96.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 97 -->
 ## Original slide 97
@@ -1984,9 +1293,9 @@ Linearity between outcome and predictors
 
 99
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 97.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 98 -->
 ## Original slide 98
@@ -2005,9 +1314,9 @@ Area.
 
 100
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 98.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 99 -->
 ## Original slide 99
@@ -2026,9 +1335,9 @@ Total Box
 
 101
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 99.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 100 -->
 ## Original slide 100
@@ -2047,9 +1356,9 @@ line
 
 102
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 100.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 101 -->
 ## Original slide 101
@@ -2068,9 +1377,9 @@ line
 
 103
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 101.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 102 -->
 ## Original slide 102
@@ -2079,7 +1388,7 @@ Exercise 3
 Linearity between outcome and predictors
 
 
-Y                                   Y
+$Y$                                   Y
 
 
 
@@ -2095,9 +1404,9 @@ x                            x
 Not Linear                          Linear
 104
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 102.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 103 -->
 ## Original slide 103
@@ -2120,9 +1429,9 @@ predictor:
 plot.
 105
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 103.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 104 -->
 ## Original slide 104
@@ -2131,7 +1440,7 @@ Exercise 3
 Normality of residuals
 1 Click Analyze > Regression
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
 > Linear in the top menu.
 
 2 Check that the Linear
@@ -2143,9 +1452,9 @@ Changed.
 
 106
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 104.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 105 -->
 ## Original slide 105
@@ -2162,9 +1471,9 @@ plot box.
 
 107
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 105.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 106 -->
 ## Original slide 106
@@ -2185,9 +1494,9 @@ distributed.
 
 108
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 106.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 107 -->
 ## Original slide 107
@@ -2210,9 +1519,9 @@ predictor:
 plot
 109
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 107.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 108 -->
 ## Original slide 108
@@ -2221,7 +1530,7 @@ Exercise 3
 Residual analysis for Homoscedasticity, Independence and outliers
 1 Click Analyze > Regression
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
 > Linear in the top menu.
 
 2 Check that the Linear
@@ -2233,9 +1542,9 @@ Changed.
 
 110
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 108.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 109 -->
 ## Original slide 109
@@ -2244,7 +1553,7 @@ Exercise 3
 Residual analysis for Homoscedasticity, Independence and outliers
 4 Transfer the variables
 to the Y: box and the
-variable       to the X:
+variable       to the $X$ :
 box.
 
 5 Click on Continue, then OK.
@@ -2254,9 +1563,9 @@ box.
 
 111
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 109.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 110 -->
 ## Original slide 110
@@ -2277,9 +1586,9 @@ the basic random pattern
 of residuals (no outliers).
 112
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 110.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 111 -->
 ## Original slide 111
@@ -2300,9 +1609,9 @@ the basic random pattern
 of residuals (no outliers).
 113
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 111.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 112 -->
 ## Original slide 112
@@ -2311,7 +1620,7 @@ Exercise 3
 Residual analysis for Homoscedasticity
 
 
-Y                                     Y
+$Y$                                     Y
 
 
 
@@ -2327,9 +1636,9 @@ x                                   x
 Non-constant variance                   Constant variance
 114
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 112.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 113 -->
 ## Original slide 113
@@ -2357,9 +1666,9 @@ X
 Not Independent                      Independent
 115
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 113.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 114 -->
 ## Original slide 114
@@ -2374,9 +1683,9 @@ sample.
 
 116
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 114.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 115 -->
 ## Original slide 115
@@ -2398,9 +1707,9 @@ pulls regression
 
 -4                                             117
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 115.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 116 -->
 ## Original slide 116
@@ -2422,9 +1731,9 @@ removed from
 sample
 -4                                       118
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 116.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 117 -->
 ## Original slide 117
@@ -2443,9 +1752,9 @@ If you see no reason why your outliers are erroneous measurements
 
 119
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 117.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 118 -->
 ## Original slide 118
@@ -2469,17 +1778,17 @@ Conclusion:
 plot
 120
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 118.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 119 -->
 ## Original slide 119
 
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 119.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 120 -->
 ## Original slide 120
@@ -2496,9 +1805,9 @@ associated with Gender?
 
 122
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 120.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 121 -->
 ## Original slide 121
@@ -2507,16 +1816,16 @@ Exercise 4
 Visualisation with box plots
 1 Click Graphs > Chart Builder … in the top menu.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
 
 
 
 
 123
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 121.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 122 -->
 ## Original slide 122
@@ -2530,9 +1839,9 @@ Visualisation with box plots
 
 124
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 122.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 123 -->
 ## Original slide 123
@@ -2548,9 +1857,9 @@ Visualisation with box plots
 
 125
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 123.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 124 -->
 ## Original slide 124
@@ -2569,9 +1878,9 @@ Area.
 
 126
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 124.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 125 -->
 ## Original slide 125
@@ -2588,9 +1897,9 @@ box.
 
 127
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 125.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 126 -->
 ## Original slide 126
@@ -2604,9 +1913,9 @@ Visualisation with box plots
 
 128
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 126.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 127 -->
 ## Original slide 127
@@ -2615,16 +1924,16 @@ Exercise 4
 Estimation of parameters
 1 Click Analyze > Regression > Linear in the top menu.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
 
 
 
 
 129
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 127.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 128 -->
 ## Original slide 128
@@ -2641,9 +1950,9 @@ blank).
 
 130
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 128.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 129 -->
 ## Original slide 129
@@ -2663,9 +1972,9 @@ selecting them and clicking
 
 131
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 129.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 130 -->
 ## Original slide 130
@@ -2686,9 +1995,9 @@ and Confidence intervals
 
 132
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 130.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 131 -->
 ## Original slide 131
@@ -2708,9 +2017,9 @@ model does not predict SBP
 significantly well.
 133
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 131.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 132 -->
 ## Original slide 132
@@ -2730,9 +2039,9 @@ females which was confirmed by C.I. containing the value 0.
 
 134
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 132.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 133 -->
 ## Original slide 133
@@ -2744,9 +2053,9 @@ Break for Lunch
 
 135
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 133.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 134 -->
 ## Original slide 134
@@ -2764,9 +2073,9 @@ Part 3: Multiple Linear Regression
 2. Example
 136
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 134.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 135 -->
 ## Original slide 135
@@ -2776,17 +2085,18 @@ Multiple Linear Regression
 (continuous/ordinal) independent variables.
 
 - Simple Linear Regression:
-X                       Y
+$X$                       Y
 - Multiple Linear Regression:
-X1
-X2
-X3                      Y
-X4
-137
+$X1$
+$X2$
+$X3$                      Y
+$X4$
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 135.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
+
+
 
 <!-- Original slide 136 -->
 ## Original slide 136
@@ -2807,16 +2117,16 @@ Ex (X2) = # of daily hours of exercise             Ex     mortality
 Chol (X3) = rate of cholesterol                    Chol
 138
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 136.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 137 -->
 ## Original slide 137
 
 Multiple Linear Regression
 Same way to obtain estimates of the regression coefficients (least
-squares), e.g. for Xi independent variables:
+squares), e.g. for $X$ i independent variables:
 
 𝑌𝑌� = 𝑎𝑎 + 𝑏𝑏1 𝑥𝑥1 + 𝑏𝑏2 𝑥𝑥2 + ⋯ + 𝑏𝑏𝑖𝑖 𝑥𝑥𝑖𝑖 + 𝑒𝑒
 - a: Y-intercept
@@ -2827,9 +2137,9 @@ ones in the model)
 - e: error (residuals)
 139
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 137.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 138 -->
 ## Original slide 138
@@ -2847,9 +2157,9 @@ if all other variables in the model were held constant.
 
 140
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 138.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 139 -->
 ## Original slide 139
@@ -2867,9 +2177,9 @@ Functions of multivariable analysis:
 
 141
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 139.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 140 -->
 ## Original slide 140
@@ -2887,9 +2197,9 @@ Assumptions
 - No overfitting.
 142
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 140.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 141 -->
 ## Original slide 141
@@ -2909,9 +2219,9 @@ are unstable.
 
 143
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 141.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 142 -->
 ## Original slide 142
@@ -2931,9 +2241,9 @@ Independence of observations:
 suggests that the assumption of independence of observations is
 reasonable.                                                                 144
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 142.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 143 -->
 ## Original slide 143
@@ -2951,9 +2261,9 @@ of linearity and/or independence of errors.
 
 145
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 143.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 144 -->
 ## Original slide 144
@@ -2972,9 +2282,9 @@ relationship, outliers …
 
 146
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 144.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 145 -->
 ## Original slide 145
@@ -2994,9 +2304,9 @@ Outliers
 - Solution depends on the origin of the outlier.
 147
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 145.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 146 -->
 ## Original slide 146
@@ -3015,9 +2325,9 @@ has no predictive ability in a new sample.
 
 148
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 146.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 147 -->
 ## Original slide 147
@@ -3036,9 +2346,9 @@ time.
 statistically significant correlation with the outcome.
 149
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 147.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 148 -->
 ## Original slide 148
@@ -3056,9 +2366,9 @@ generalized.
 - Corrects for overparameterization.
 150
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 148.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 149 -->
 ## Original slide 149
@@ -3078,9 +2388,9 @@ Neill (2001)
 
 151
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 149.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 150 -->
 ## Original slide 150
@@ -3091,17 +2401,17 @@ Study design:
 - n = 224 participants (Australian adolescent population).
 - Y: Measure of psychological distress (low scores indicated a high
 level of psychological distress).
-- X1 : Not Worrying (score based on items).
-- X2 : Ignoring problems (score based on items).
+- $X$ 1 : Not Worrying (score based on items).
+- $X$ 2 : Ignoring problems (score based on items).
 
 
 
 
 152
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 150.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 151 -->
 ## Original slide 151
@@ -3123,9 +2433,9 @@ problems
 
 153
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 151.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 152 -->
 ## Original slide 152
@@ -3142,16 +2452,16 @@ Correlation matrix:
 are negative (-0.521 and -0.325).
 154
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 152.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 153 -->
 ## Original slide 153
 
 Multiple Linear Regression
 Example: Effect of ignoring problems and not worrying on psychological stress
-Is there a linear relationship between all of the X variables taken
+Is there a linear relationship between all of the $X$ variables taken
 together and Y?
 
 
@@ -3165,9 +2475,9 @@ has a significant effect on Y)
 
 155
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 153.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 154 -->
 ## Original slide 154
@@ -3185,16 +2495,16 @@ population (Adj. R2 = 0.288).
 
 156
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 154.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 155 -->
 ## Original slide 155
 
 Multiple Linear Regression
 Example: Effect of ignoring problems and not worrying on psychological stress
-Is there a linear relationship between each X variables and Y?
+Is there a linear relationship between each $X$ variables and Y?
 
 
 
@@ -3202,14 +2512,14 @@ Is there a linear relationship between each X variables and Y?
 Hypotheses:
 
 𝐻𝐻0 : 𝑏𝑏𝑖𝑖 = 0 (no linear relationship)
-𝐻𝐻1 : 𝑏𝑏𝑖𝑖 ≠ 0 (linear relationship between Xi and Y)
+𝐻𝐻1 : 𝑏𝑏𝑖𝑖 ≠ 0 (linear relationship between $X$ i and Y)
 
 
 157
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 155.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 156 -->
 ## Original slide 156
@@ -3227,9 +2537,9 @@ significant, negative predictors of mental health.
 
 158
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 156.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 157 -->
 ## Original slide 157
@@ -3247,9 +2557,9 @@ The increase of 1 unit of “Ignoring problem” is estimated to decrease
 4.7 units of psychological distress keeping everything else constant.
 159
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 157.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 158 -->
 ## Original slide 158
@@ -3268,9 +2578,9 @@ Prediction equation:
 
 160
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 158.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 159 -->
 ## Original slide 159
@@ -3288,9 +2598,9 @@ Psychological Distress is reduced by between 1.2 and 8.2 units per
 1-unit increase of “Ignore problem” keeping everything else constant.
 161
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 159.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 160 -->
 ## Original slide 160
@@ -3308,9 +2618,9 @@ commonly used in compartmental analysis).
 
 162
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 160.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 161 -->
 ## Original slide 161
@@ -3340,17 +2650,17 @@ smoker (yes=1/no=0)                      increase in each predictor.
 
 163
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 161.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 162 -->
 ## Original slide 162
 
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 162.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 163 -->
 ## Original slide 163
@@ -3367,9 +2677,9 @@ Blood Pressure
 
 165
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 163.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 164 -->
 ## Original slide 164
@@ -3388,9 +2698,9 @@ Where to start?
 
 166
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 164.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 165 -->
 ## Original slide 165
@@ -3407,9 +2717,9 @@ Observations:
 - There are no highly correlated variables (So no collinearity problems if included in
 the model).                                                                           167
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 165.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 166 -->
 ## Original slide 166
@@ -3424,14 +2734,14 @@ Sugar (FBS), and Maximum Heart Rate (thalach) as the
 independent variables.
 - Look at the significance level of the ANOVA table for each of
 the 5 regressions.
-- Select potential predictors (significant p-value or p<0.2).
+- Select potential predictors (significant p-value or $p < 0.2$).
 
 
 168
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 166.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 167 -->
 ## Original slide 167
@@ -3440,16 +2750,16 @@ Exercise 5
 Approach 1: Step-wise Selection
 1 Click Analyze > Regression > Linear in the top menu.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
 
 
 
 
 169
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 167.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 168 -->
 ## Original slide 168
@@ -3466,9 +2776,9 @@ blank).
 
 170
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 168.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 169 -->
 ## Original slide 169
@@ -3489,9 +2799,9 @@ selecting them and clicking
 
 171
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 169.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 170 -->
 ## Original slide 170
@@ -3510,9 +2820,9 @@ Independent(s): box (one by
 one).
 172
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 170.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 171 -->
 ## Original slide 171
@@ -3531,9 +2841,9 @@ Level and FBS are potential predictors
 is discarded.
 173
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 171.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 172 -->
 ## Original slide 172
@@ -3552,11 +2862,11 @@ specification, variable is added to model.
 - Estimate the final model and check assumptions of the model.
 - Can do this automatically in SPSS.                                 174
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 172.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
+
 
 <!-- Original slide 173 -->
 ## Original slide 173
@@ -3565,16 +2875,16 @@ Exercise 5
 Approach 1: Step-wise Selection
 1 Click Analyze > Regression > Linear in the top menu.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
 
 
 
 
 175
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 173.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 174 -->
 ## Original slide 174
@@ -3593,9 +2903,9 @@ selecting them and clicking .
 4 Click on Statistics…
 176
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 174.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 175 -->
 ## Original slide 175
@@ -3615,9 +2925,9 @@ Collinearity diagnostics.
 
 177
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 175.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 176 -->
 ## Original slide 176
@@ -3628,7 +2938,7 @@ Approach 1: Step-wise Selection
 
 8 Transfer the variables      to
 the Y: box and the variable
-to the X: box.
+to the $X$ : box.
 
 9 Tick Normal probability plot.
 
@@ -3636,9 +2946,9 @@ Click on Continue then OK.
 
 178
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 176.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 177 -->
 ## Original slide 177
@@ -3658,9 +2968,9 @@ significantly well.
 
 179
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 177.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 178 -->
 ## Original slide 178
@@ -3681,9 +2991,9 @@ in the model kept constant.
 - SBP is higher for participants with fbs>120 than those with fbs <120
 (estimate=9.09) when all other variables in the model kept constant.                  180
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 178.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 179 -->
 ## Original slide 179
@@ -3701,9 +3011,9 @@ Check assumptions of the multiple linear regression model
 - No overfitting
 181
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 179.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 180 -->
 ## Original slide 180
@@ -3723,9 +3033,9 @@ dichotomous.
 - No overfitting
 182
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 180.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 181 -->
 ## Original slide 181
@@ -3749,9 +3059,9 @@ m=2
 - No overfitting
 183
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 181.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 182 -->
 ## Original slide 182
@@ -3769,9 +3079,9 @@ Check assumptions of the multiple linear regression model
 - No overfitting
 184
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 182.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 183 -->
 ## Original slide 183
@@ -3794,9 +3104,9 @@ observations are independent.
 
 185
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 183.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 184 -->
 ## Original slide 184
@@ -3819,9 +3129,9 @@ observations are independent.
 
 186
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 184.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 185 -->
 ## Original slide 185
@@ -3839,9 +3149,9 @@ Check assumptions of the multiple linear regression model
 - No overfitting
 187
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 185.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 186 -->
 ## Original slide 186
@@ -3862,9 +3172,9 @@ distributed.
 
 188
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 186.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 187 -->
 ## Original slide 187
@@ -3882,9 +3192,9 @@ Check assumptions of the multiple linear regression model
 - No overfitting
 189
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 187.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 188 -->
 ## Original slide 188
@@ -3905,9 +3215,9 @@ model.
 
 190
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 188.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 189 -->
 ## Original slide 189
@@ -3925,9 +3235,9 @@ Check assumptions of the multiple linear regression model
 - No overfitting
 191
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 189.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 190 -->
 ## Original slide 190
@@ -3948,9 +3258,9 @@ that there are no outliers.
 
 192
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 190.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 191 -->
 ## Original slide 191
@@ -3970,9 +3280,9 @@ Overfitting:
 
 193
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 191.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 192 -->
 ## Original slide 192
@@ -3992,9 +3302,9 @@ Conclusion:
 
 194
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 192.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 193 -->
 ## Original slide 193
@@ -4013,9 +3323,9 @@ independent variables.
 Backward elimination, Lasso, etc.).
 195
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 193.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 194 -->
 ## Original slide 194
@@ -4024,16 +3334,16 @@ Exercise 5
 Approach 2: A Priori Selection of Variables
 1 Click Analyze > Regression > Linear in the top menu.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
 
 
 
 
 196
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 194.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 195 -->
 ## Original slide 195
@@ -4050,9 +3360,9 @@ blank).
 
 197
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 195.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 196 -->
 ## Original slide 196
@@ -4072,9 +3382,9 @@ selecting them and clicking .
 
 198
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 196.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 197 -->
 ## Original slide 197
@@ -4094,9 +3404,9 @@ Collinearity diagnostics.
 
 199
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 197.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 198 -->
 ## Original slide 198
@@ -4107,7 +3417,7 @@ Approach 1: Step-wise Selection
 
 9 Transfer the variables      to
 the Y: box and the variable
-to the X: box.
+to the $X$ : box.
 
 Tick Normal probability plot.
 
@@ -4115,9 +3425,9 @@ Click on Continue then OK.
 
 200
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 198.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 199 -->
 ## Original slide 199
@@ -4137,9 +3447,9 @@ significantly well.
 
 201
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 199.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 200 -->
 ## Original slide 200
@@ -4158,9 +3468,9 @@ Output: Coefficients
 to those with FBS <=120 units.
 202
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 200.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 201 -->
 ## Original slide 201
@@ -4180,9 +3490,9 @@ Output: Coefficients
 - Use a robust approach to select final model (e.g., Stepwise).
 203
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 201.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 202 -->
 ## Original slide 202
@@ -4205,9 +3515,9 @@ are no outliers.
 
 204
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 202.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 203 -->
 ## Original slide 203
@@ -4230,9 +3540,9 @@ are no outliers.
 
 205
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 203.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 204 -->
 ## Original slide 204
@@ -4252,9 +3562,9 @@ distributed.
 
 206
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 204.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 205 -->
 ## Original slide 205
@@ -4273,9 +3583,9 @@ Conclusion:
 - All multiple linear model assumptions hold.
 207
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 205.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 206 -->
 ## Original slide 206
@@ -4292,9 +3602,9 @@ beta-carotene level
 
 208
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 206.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 207 -->
 ## Original slide 207
@@ -4315,9 +3625,9 @@ Nierenberg DW, Stukel TA, Baron JA, Dain BJ, Greenberg ER. Determinants of plasm
 Journal of Epidemiology 1989;130:511-521.
 209
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 207.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 208 -->
 ## Original slide 208
@@ -4331,9 +3641,9 @@ Data dictionary
 http://biostat.mc.vanderbilt.edu/wiki/pub/Main/DataSets/plasma.html
 210
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 208.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 209 -->
 ## Original slide 209
@@ -4346,16 +3656,16 @@ Importing data and Quality Control
 2   In the Data folder select and Open the file file
 LRinSPSS_Workshop_Data_Plasma.sav
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
 
 
 
 
 211
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 209.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 210 -->
 ## Original slide 210
@@ -4374,9 +3684,9 @@ selecting them and clicking on
 
 212
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 210.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 211 -->
 ## Original slide 211
@@ -4394,9 +3704,9 @@ fibre (+) have the highest correlations with betaplasma (dependent
 variable in the model).
 213
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 211.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 212 -->
 ## Original slide 212
@@ -4412,9 +3722,9 @@ Observations:
  Variables Fat, Cholesterol, and Calories are highly correlated (risk of
 multicollinearity).                                                         214
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 212.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 213 -->
 ## Original slide 213
@@ -4423,16 +3733,16 @@ Exercise 6
 Regression with un-transformed Beta-Carotene as dependent variable
 1 Click Analize > Regression > Linear in the top menu.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
 
 
 
 
 215
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 213.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 214 -->
 ## Original slide 214
@@ -4451,9 +3761,9 @@ selecting them and clicking .
 4 Click on OK.
 216
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 214.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 215 -->
 ## Original slide 215
@@ -4472,9 +3782,9 @@ consumed, cholesterol consumed, and fibre consumed.
 - Variables vituse2 (1: vituse = 2; 2: vituse 1 or 3) and vituse3 (1: vituse = 3; 2: vituse
 2 or 3) are added to the model instead of vituse.                                           217
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 215.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 216 -->
 ## Original slide 216
@@ -4495,9 +3805,9 @@ were vituse = 1 and 3. vituse3 is a dummy variable that is 1 in all rows were vi
 and is 0 in all rows were vituse = 1 and 2.
 - Same situation applies for variable smokstat.                                             218
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 216.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 217 -->
 ## Original slide 217
@@ -4506,16 +3816,16 @@ Exercise 6
 Regression with un-transformed Beta-Carotene as dependent variable
 1 Click Transform > Recode into Different Variables in the top menu.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
 
 
 
 
 219
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 217.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 218 -->
 ## Original slide 218
@@ -4534,9 +3844,9 @@ box and click Change
 
 220
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 218.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 219 -->
 ## Original slide 219
@@ -4554,9 +3864,9 @@ in the New Value: Value: box. Then click Add.
 Value: Value: box. Then click Add.
 8 Click Continue then OK.                                            221
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 219.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 220 -->
 ## Original slide 220
@@ -4565,16 +3875,16 @@ Exercise 6
 Regression with un-transformed Beta-Carotene as dependent variable
 1 Click Analize > Regression > Linear in the top menu.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
 
 
 
 
 222
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 220.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 221 -->
 ## Original slide 221
@@ -4593,9 +3903,9 @@ selecting them and clicking .
 4 Click on Statistics…
 223
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 221.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 222 -->
 ## Original slide 222
@@ -4615,9 +3925,9 @@ Collinearity diagnostics.
 
 224
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 222.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 223 -->
 ## Original slide 223
@@ -4628,7 +3938,7 @@ Regression with un-transformed Beta-Carotene as dependent variable
 
 8 Transfer the variables      to
 the Y: box and the variable
-to the X: box.
+to the $X$ : box.
 
 9 Tick Normal probability plot.
 
@@ -4636,9 +3946,9 @@ Click on Continue then OK.
 
 225
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 223.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 224 -->
 ## Original slide 224
@@ -4657,9 +3967,9 @@ Output: Coefficients
 keeping everything else constant
 226
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 224.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 225 -->
 ## Original slide 225
@@ -4678,9 +3988,9 @@ increased by 0.18 units ), keeping everything else constant
 cholesterol consumption ), keeping everything else constant
 227
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 225.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 226 -->
 ## Original slide 226
@@ -4700,9 +4010,9 @@ fibre consumption), keeping everything else constant
 
 228
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 226.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 227 -->
 ## Original slide 227
@@ -4723,9 +4033,9 @@ terms are non-constant
 
 229
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 227.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 228 -->
 ## Original slide 228
@@ -4746,9 +4056,9 @@ terms are non-constant
 
 230
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 228.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 229 -->
 ## Original slide 229
@@ -4768,9 +4078,9 @@ normally distributed.
 
 231
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 229.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 230 -->
 ## Original slide 230
@@ -4789,9 +4099,9 @@ Possible solution:
 Run analysis with transformed beta-plasma (logbetaplasma).
 232
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 230.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 231 -->
 ## Original slide 231
@@ -4800,16 +4110,16 @@ Exercise 6
 Checking distribution of dependent variable: Histogram
 1 Click Graphs > Histogram in the top menu.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
 
 
 
 
 233
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 231.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 232 -->
 ## Original slide 232
@@ -4824,9 +4134,9 @@ and clicking on . Tick the Display normal curve box.
 
 234
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 232.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 233 -->
 ## Original slide 233
@@ -4840,9 +4150,9 @@ Checking distribution of dependent variable: Histogram
 
 235
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 233.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 234 -->
 ## Original slide 234
@@ -4860,9 +4170,9 @@ The log-transformation of data is very common, mostly to eliminate
 skewness in data.
 236
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 234.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 235 -->
 ## Original slide 235
@@ -4881,9 +4191,9 @@ Shapiro-Wilk test                                   Shapiro-Wilk test:
 - Non-normally distributed                           Normally distributed
 237
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 235.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 236 -->
 ## Original slide 236
@@ -4902,9 +4212,9 @@ transformation
 
 238
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 236.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 237 -->
 ## Original slide 237
@@ -4913,16 +4223,16 @@ Exercise 6
 Transformation of beta plasma
 1 Click Transform > Compute Variable in the top menu.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
 
 
 
 
 239
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 237.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 238 -->
 ## Original slide 238
@@ -4943,9 +4253,9 @@ value of 0).
 4 Click on OK
 240
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 238.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 239 -->
 ## Original slide 239
@@ -4959,9 +4269,9 @@ Transformation of beta plasma
 
 241
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 239.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 240 -->
 ## Original slide 240
@@ -4970,16 +4280,16 @@ Exercise 6
 Checking distribution of logbetaplasma
 1 Click Graphs > Histogram in the top menu.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
 
 
 
 
 242
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 240.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 241 -->
 ## Original slide 241
@@ -4994,9 +4304,9 @@ it and clicking on . Tick the Display normal curve box.
 
 243
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 241.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 242 -->
 ## Original slide 242
@@ -5010,9 +4320,9 @@ Checking distribution of logbetaplasma
 
 244
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 242.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 243 -->
 ## Original slide 243
@@ -5030,9 +4340,9 @@ Log - transformation
 
 245
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 243.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 244 -->
 ## Original slide 244
@@ -5041,16 +4351,16 @@ Exercise 6
 Correlation analysis of continuous variables
 1 Click Analyze > Correlate > Bivariate… on the top menu
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
 
 
 
 
 246
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 244.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 245 -->
 ## Original slide 245
@@ -5059,16 +4369,16 @@ Exercise 6
 Regression with log-transformed Beta-Carotene as dependent variable
 1 Click Analize > Regression > Linear in the top menu.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
 
 
 
 
 247
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 245.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 246 -->
 ## Original slide 246
@@ -5087,9 +4397,9 @@ selecting them and clicking .
 4 Click on OK.
 248
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 246.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 247 -->
 ## Original slide 247
@@ -5108,9 +4418,9 @@ fibre consumed, vitamin use, beta-carotene consumed, and smoking status.
 variables with 2+ categories.
 - Include variables vituse2, vituse3, smokstat2 and smokstat3 to the final model.   249
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 247.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 248 -->
 ## Original slide 248
@@ -5119,16 +4429,16 @@ Exercise 6
 Regression with log-transformed Beta-Carotene as dependent variable
 1 Click Analize > Regression > Linear in the top menu.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
 
 
 
 
 250
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 248.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 249 -->
 ## Original slide 249
@@ -5147,9 +4457,9 @@ them and clicking .
 4 Click on Statistics…
 251
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 249.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 250 -->
 ## Original slide 250
@@ -5169,9 +4479,9 @@ Collinearity diagnostics.
 
 252
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 250.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 251 -->
 ## Original slide 251
@@ -5182,7 +4492,7 @@ Regression with log-transformed Beta-Carotene as dependent variable
 
 8 Transfer the variables      to
 the Y: box and the variable
-to the X: box.
+to the $X$ : box.
 
 9 Tick Normal probability plot.
 
@@ -5190,9 +4500,9 @@ Click on Continue then OK.
 
 253
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 251.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 252 -->
 ## Original slide 252
@@ -5210,9 +4520,9 @@ Output: Coefficients
 
 254
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 252.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 253 -->
 ## Original slide 253
@@ -5222,23 +4532,23 @@ Interpretation of transformed linear regression models
 The interpretation of the regression coefficients depends on the
 model specification.
 Model                Equation                     Interpretation of 𝛽𝛽
-Linear-linear              𝑌𝑌 = 𝛼𝛼 + 𝛽𝛽𝛽𝛽         a 1 unit change in X leads to a 𝛽𝛽 unit
+Linear-linear              𝑌𝑌 = 𝛼𝛼 + 𝛽𝛽𝛽𝛽         a 1 unit change in $X$ leads to a 𝛽𝛽 unit
 regression                                        change in Y.
-Log-linear               l𝑛𝑛(𝑌𝑌) = 𝛼𝛼 + 𝛽𝛽𝛽𝛽      a 1 unit change in X leads to a 100 ∗ 𝛽𝛽 %
+Log-linear               l𝑛𝑛(𝑌𝑌) = 𝛼𝛼 + 𝛽𝛽𝛽𝛽      a 1 unit change in $X$ leads to a 100 ∗ 𝛽𝛽 %
 regression                                        change in Y.
-Linear-log               𝑌𝑌 = 𝛼𝛼 + 𝛽𝛽l𝑛𝑛(𝑋𝑋)      a 1% change in X leads to a
+Linear-log               𝑌𝑌 = 𝛼𝛼 + 𝛽𝛽l𝑛𝑛(𝑋𝑋)      a 1% change in $X$ leads to a
 𝛽𝛽
 unit
 100
 regression
 change in Y.
-Log-log                l𝑛𝑛(𝑌𝑌) = 𝛼𝛼 + 𝛽𝛽l𝑛𝑛(𝑋𝑋)   a 1% change in X leads to a 𝛽𝛽% change in
+Log-log                l𝑛𝑛(𝑌𝑌) = 𝛼𝛼 + 𝛽𝛽l𝑛𝑛(𝑋𝑋)   a 1% change in $X$ leads to a 𝛽𝛽% change in
 regression                                        Y.
 255
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 253.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 254 -->
 ## Original slide 254
@@ -5248,23 +4558,23 @@ Interpretation of transformed linear regression models
 The interpretation of the regression coefficients depends on the
 model specification.
 Model                Equation                     Interpretation of 𝛽𝛽
-Linear-linear              𝑌𝑌 = 𝛼𝛼 + 𝛽𝛽𝛽𝛽         a 1 unit change in X leads to a 𝛽𝛽 unit
+Linear-linear              𝑌𝑌 = 𝛼𝛼 + 𝛽𝛽𝛽𝛽         a 1 unit change in $X$ leads to a 𝛽𝛽 unit
 regression                                        change in Y.
-Log-linear               l𝑛𝑛(𝑌𝑌) = 𝛼𝛼 + 𝛽𝛽𝛽𝛽      a 1 unit change in X leads to a 100 ∗ 𝛽𝛽 %
+Log-linear               l𝑛𝑛(𝑌𝑌) = 𝛼𝛼 + 𝛽𝛽𝛽𝛽      a 1 unit change in $X$ leads to a 100 ∗ 𝛽𝛽 %
 regression                                        change in Y.
-Linear-log               𝑌𝑌 = 𝛼𝛼 + 𝛽𝛽l𝑛𝑛(𝑋𝑋)      a 1% change in X leads to a
+Linear-log               𝑌𝑌 = 𝛼𝛼 + 𝛽𝛽l𝑛𝑛(𝑋𝑋)      a 1% change in $X$ leads to a
 𝛽𝛽
 unit
 100
 regression
 change in Y.
-Log-log                l𝑛𝑛(𝑌𝑌) = 𝛼𝛼 + 𝛽𝛽l𝑛𝑛(𝑋𝑋)   a 1% change in X leads to a 𝛽𝛽% change in
+Log-log                l𝑛𝑛(𝑌𝑌) = 𝛼𝛼 + 𝛽𝛽l𝑛𝑛(𝑋𝑋)   a 1% change in $X$ leads to a 𝛽𝛽% change in
 regression                                        Y.
 256
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 254.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 255 -->
 ## Original slide 255
@@ -5283,9 +4593,9 @@ everything else constant.
 - betaplasma seems to decrease by (100*0.001)% = 0.1% for every unit increase in cholesterol
 consumed. Keeping everything else constant.                                                 257
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 255.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 256 -->
 ## Original slide 256
@@ -5303,9 +4613,9 @@ fibre consumed. Keeping everything else constant.
 - betaplasma seems to increase by (100*0.000071)% = 0.007% for every unit
 increase in beta-carotene in diet. Keeping everything else constant.          258
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 256.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 257 -->
 ## Original slide 257
@@ -5323,9 +4633,9 @@ vitamine vs. patients using it often. Keeping everything else constant.
 - betaplasma seems to be (100*0.286)% = 28.6% lower for current smoker patients
 vs. non-smoker patients. Keeping everything else constant.                      259
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 257.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 258 -->
 ## Original slide 258
@@ -5348,9 +4658,9 @@ observations are independent.
 
 260
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 258.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 259 -->
 ## Original slide 259
@@ -5373,9 +4683,9 @@ observations are independent.
 
 261
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 259.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 260 -->
 ## Original slide 260
@@ -5397,9 +4707,9 @@ without 257 and compare the
 results.
 262
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 260.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 261 -->
 ## Original slide 261
@@ -5413,9 +4723,9 @@ Re-run the analysis without outlier
 
 263
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 261.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 262 -->
 ## Original slide 262
@@ -5429,9 +4739,9 @@ Re-run the analysis without outlier
 
 264
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 262.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 263 -->
 ## Original slide 263
@@ -5446,9 +4756,9 @@ OK
 
 265
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 263.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 264 -->
 ## Original slide 264
@@ -5457,16 +4767,16 @@ Exercise 6
 Re-run the analysis without outlier
 4 Click Analyze > Regression > Linear in the top menu.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
 
 
 
 
 266
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 264.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 265 -->
 ## Original slide 265
@@ -5486,9 +4796,9 @@ input the final model.
 
 267
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 265.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 266 -->
 ## Original slide 266
@@ -5506,9 +4816,9 @@ Output: Coefficients
 a false discovery previously).
 - Coefficients of vituse3 and smokstat 3 changed the most.                             268
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 266.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 267 -->
 ## Original slide 267
@@ -5531,9 +4841,9 @@ issue.
 
 269
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 267.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 268 -->
 ## Original slide 268
@@ -5556,9 +4866,9 @@ issue.
 
 270
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 268.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 269 -->
 ## Original slide 269
@@ -5578,9 +4888,9 @@ distributed.
 
 271
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 269.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 270 -->
 ## Original slide 270
@@ -5597,9 +4907,9 @@ Output: Coefficients
 Conclusion:
 - All multiple linear model assumptions hold after taking care of the outlier.   272
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 270.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 271 -->
 ## Original slide 271
@@ -5610,9 +4920,9 @@ Thank you for your attention!
 
 273
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 271.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
 
 <!-- Original slide 272 -->
 ## Original slide 272
@@ -5632,6 +4942,6 @@ training@qcif.edu.au
 www.qcif.edu.au
 274
 
-> **SCREENSHOT / VISUAL TO REVIEW — original slide 272.** If this slide contains SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
-> **JAMOVI TODO:** replace this SPSS-specific instruction with the tested jamovi equivalent and screenshot.
+
+
