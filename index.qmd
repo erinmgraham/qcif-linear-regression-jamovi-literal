@@ -7,7 +7,7 @@ subtitle: "Literal migration draft from the SPSS workshop"
 This version deliberately preserves the original slide order, repeated signposting, exercises and wording as closely as possible. SPSS interface images/actions are marked for replacement with jamovi equivalents. Statistical content is not silently redesigned; items needing review are marked separately.
 :::
 
-# Exploring and Predicting Using Linear Regression in jamvi
+# Exploring and Predicting Using Linear Regression in jamovi
 
 We acknowledge and celebrate the First Australians on whose traditional lands we meet, and we pay our respect to the Elders past and present.
 
@@ -374,7 +374,7 @@ Correlation analysis of multiple variables.
 
 1. Select **Analyses > Correlation > Correlation Matrix**.
 2. Move `age`, `chol`, `oldpeak`, `thalach` and `trestbps` into **Variables**.
-3. Under **Correlation Coefficients**,uncheck **Pearson** and check **Spearman**.
+3. Under **Correlation Coefficients**, uncheck **Pearson** and check **Spearman**.
 
 ![](images/01-jamovi-data-ex-2-matrix-scatterplots-analysis.png)
 
@@ -481,10 +481,13 @@ The smaller the sum of squared differences, the better the fit of
 the line to the data.
 
 __Sum of squared differences:__
+
 Green line:
+
 (1-4.5)^2  +(4-4.5)^2 + (4-4.5)^2 + (7-4.5)^2  +(8-4.5)^2 = 31.25
 
 Blue line:
+
 (1-2)^2 + (4-3)^2 + (4-4.5)^2 + (7-6)^2 + (8-7.5)^2 = 3.5
 
 ![](images/02-slr-fig-best-calculate.png)
@@ -522,16 +525,15 @@ $$
 ## Regression Hypothesis Tests
 
 Is the slope significantly different from 0?
+
 |  |  |
 |---|---|
 | Hypothesis | H0: b = 0 (no relationship) |
 |  | H1: b ≠ 0 (linear relationship) |
-
-| Test of significance | T = b/SE(b) |
+| Test of significance | $T = b/SE(b)$ |
 | Result | p-value significant or not |
 | Conclusion | the slope is different from 0 |
 |  | significant linear relationship |
-
 
 
 <!-- Original slide 62 -->
