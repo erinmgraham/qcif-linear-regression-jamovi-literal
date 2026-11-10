@@ -62,13 +62,13 @@ If you are using a university license to run SPSS, you may find that you can onl
 ### Open today’s data file
 
 1. Download the workshop materials into your local drive.
-2. At the top left hand corner, select from the File menu *(☰) > Open > <path to data folder>*.
-3. In the Data folder select and *Open* the file.
+2. At the top left hand corner, select from the File menu **(☰) > Open > <path to data folder>**.
+3. In the Data folder select and **Open** the file.
 LRinSPSS_Workshop_Data_SBP.sav
 
 
-<!-- jamovi GUI -->
-### jamovi Graphical User Interface (GUI)
+<!-- GUI -->
+### Graphical User Interface (GUI)
 
 - Data View window (where the data is stored)
 - Variable View window (who the data is defined)
@@ -78,23 +78,23 @@ LRinSPSS_Workshop_Data_SBP.sav
 - Output window (script and results)
 - Help
 
-<!-- jamovi syntax -->
-### jamovi Syntax
+<!-- Syntax -->
+### Syntax
 
-jamovi syntax is based on the *R programming language*, which provides an alternative to the drop-down menus for data manipulation and statistical analyses.
+jamovi syntax is based on the **R programming language**, which provides an alternative to the drop-down menus for data manipulation and statistical analyses.
 
-The Syntax mode window is accessed by clicking the Application menu *(:)* and ticking the *Syntax mode* check box. This is where users can view and copy the underlying R code for their analyses.
+The Syntax mode window is accessed by clicking the Application menu **(:)** and ticking the **Syntax mode** check box. This is where users can view and copy the underlying R code for their analyses.
 
 In jamovi, the syntax is automatically generated as you use the user interface.
 
 To view and copy the Syntax code:
 
-- Toggle Syntax Mode: Click the Application menu *(:)*
+- Toggle Syntax Mode: Click the Application menu **(:)**
 - Enable R Code: Check the box next to Syntax mode
 - Extract Code: Right-click on any analysis output and select Copy syntax
 
-<!-- jamovi references -->
-### jamovi References
+<!-- References -->
+### References
 
 SPSS interface/output, replace it with the equivalent jamovi screenshot while retaining the surrounding teaching intent.
 
@@ -104,15 +104,15 @@ SPSS interface/output, replace it with the equivalent jamovi screenshot while re
 <!-- Exercise 1 -->
 ## Exercise 1 Determinants of Resting Systolic Blood Pressure
 
-- Cross-sectional study investigating the *relationship* between *resting
-systolic blood pressure (SBP)* and *various risk factors*.
+- Cross-sectional study investigating the **relationship** between **resting
+systolic blood pressure (SBP)** and **various risk factors**.
 
 - N = 100 heart disease patients from Cleveland, USA.
 
 - [Original data](https://www.kaggle.com/kingabzpro/heart-disease-from-cleveland) has 300 participants which was truncated for our exercise. 
 
 <!-- data dictionary -->
-### Data dictionary
+## Data dictionary
 
 | Variable | Description | Suggested measure type |
 |---|---|---|
@@ -135,8 +135,8 @@ systolic blood pressure (SBP)* and *various risk factors*.
 
 **Part 1: Correlation**
 
-**1. Pearson’s correlation coefficient**
-**2. Spearman’s correlation coefficient**
+1. **Pearson’s correlation coefficient**
+2. **Spearman’s correlation coefficient**
 
 Part 2: Simple Linear Regression
 1. Least squares estimation
@@ -155,23 +155,23 @@ Part 3: Multiple Linear Regression
 ### Introduction
 
 - Two quantitative measurements can be related.
-- They are called the *dependent* variable (Y) and the *independent*
+- They are called the **dependent** variable (Y) and the **independent**
 variable ($X$).
 
 Q How can you describe the relationship between two numerical variables?
 
-- *Correlation*: Describes the degree of *association* between variables.
-- *Regression*: Describes the *effect* of variable $X$ on variable Y.
+- **Correlation**: Describes the degree of **association** between variables.
+- **Regression**: Describes the **effect** of variable $X$ on variable Y.
 
 <!-- Correlation -->
 ### Correlation
 
-A *correlation* measures the “degree of association” between two variables.
+A **correlation** measures the “degree of association” between two variables.
 
 Associations can be:
 
-- *Positive*: An increase in one variable is associated with an increase in the other.
-- *Negative*: An increase in one variable is associated with a decrease in the
+- **Positive**: An increase in one variable is associated with an increase in the other.
+- **Negative**: An increase in one variable is associated with a decrease in the
 other.
 
 ![](images/01-correlation_plots_pos_neg_none.png)
@@ -182,11 +182,11 @@ other.
 
 To measure the “degree of association” between:
 
-- *2 continuous* variables (*normally* distributed).
+- **2 continuous** variables (**normally** distributed).
 --> Pearson’s correlation coefficient
-- *2 continuous* variables (*non normally* distributed).
+- **2 continuous** variables (**non normally** distributed).
 --> Spearman’s rank
-- *2 categorical* variables (*ordinal*).           
+- **2 categorical** variables (**ordinal**).           
 --> Kendall’s Tau
 
 ::: {.callout-warning title="Reminder"}
@@ -197,12 +197,12 @@ Ho:variable normally distributed
 <!-- Correlation-coefficient$r$-->
 ### Correlation-coefficient r
 
-The *Pearson’s correlation coefficient* is defined as:
+The **Pearson’s correlation coefficient** is defined as:
 
 $$r = \frac{\sum (x - \bar{x})(y - \bar{y})}{\sqrt{\sum (x - \bar{x})^2 \sum (y - \bar{y})^2}}$$
 
 
-It describes *how $Y$ varies with $X$* (numerator):
+It describes **how $Y$ varies with $X$** (numerator):
 $-1 \leq r \leq 1$
 $r = -1$   # 100% negative correlation
 $r = 1$     # 100% positive correlation
@@ -218,12 +218,12 @@ $r = 1$     # 100% positive correlation
 | $0.3 \leq \lvert r \rvert \leq 0.7$ | moderate relationship |
 | $\lvert r \rvert > 0.7$ | strong relationship |
 
-The *P-value* assigned to $r$ tells us how likely $r$ is right (i.e., confidence in our statement).
+The **P-value** assigned to $r$ tells us how likely $r$ is right (i.e., confidence in our statement).
 
 <!-- Coefficient of determination $r^2$ -->
 ### Coefficient of determination r^2
 
-Pearson’s $r$ can be squared, $r^2$, to derive a *coefficient of determination*.
+Pearson’s $r$ can be squared, $r^2$, to derive a **coefficient of determination**.
 
 It explains the portion of variability in one of the variables that can be accounted for by the variability in the second one.
 
@@ -239,7 +239,7 @@ variable $Y$.
 
 Scatter-plot
 
-- Displays the relationship between *2 continuous variables*.
+- Displays the relationship between **2 continuous variables**.
 - Each point represents the paired value of the variables for each
 individual.
 - Useful in the early stage of analysis when exploring data and
@@ -257,7 +257,7 @@ SBP and Age
 
 ### Visualisation with scatter plots
 
-1. From the top menu, select *Plots > Scatter Plot*.
+1. From the top menu, select **Plots > Scatter Plot**.
 
 ![](images/01-jamovi-data-ex-1-plots-scatter.png)
 
@@ -267,9 +267,9 @@ SBP and Age
 ![](images/01-jamovi-data-ex-1-plots-scatter-vars.png)
 
 
-3. Under *General Options* check the box to *Show line*.
+3. Under **General Options** check the box to **Show line**.
 
-- Choose *Linear* for the Method
+- Choose **Linear** for the Method
 - Choose with or without Confidence interval
 
 ![](images/01-jamovi-data-ex-1-plots-scatter-line.png)
@@ -280,14 +280,14 @@ SBP and Age
 
 Checking distribution of variables: Shapiro-Wilk test for Normality.
 
-1. Select *Analyses > Exploration > Descriptives*.
-2. Move `age` and `trestbps` into *Variables*.
-3. Under *Statistics*, select *Shapiro-Wilk test*.
-4. Under *Plots*, select *Histogram* and *Q-Q plot*.
+1. Select **Analyses > Exploration > Descriptives**.
+2. Move `age` and `trestbps` into **Variables**.
+3. Under **Statistics**, select **Shapiro-Wilk test**.
+4. Under **Plots**, select **Histogram** and **Q-Q plot**.
 
 ![](images/01-jamovi-data-ex-1-descriptives.png)
  
-The jamovi *Results* panel will display a *Descriptives* table, histogram, and normality plots (Normal Q-Q plots) for each of
+The jamovi **Results** panel will display a **Descriptives** table, histogram, and normality plots (Normal Q-Q plots) for each of
 the variables selected.
 
 Do they look normally distributed?
@@ -313,7 +313,7 @@ For brevity, we will not be doing this for every example in this workshop.
 <!-- Descriptives -->
 ## Descriptives table
 
-The results of the Shapiro-Wilk test are presented in the *Descriptives* table in the jamovi *Results* panel.
+The results of the Shapiro-Wilk test are presented in the **Descriptives** table in the jamovi **Results** panel.
 
   ![](images/01-jamovi-data-ex-1-descriptives-shapiro.png)
   
@@ -325,9 +325,9 @@ Therefore We msut use the Spearman’s test.
 <!--Spearman -->
 ## Spearman's
 
-1. Select *Analyses > Regression > Correlation Matrix*.
-2. Move `age` and `trestbps` into *Variables*.
-3. Under *Correlation Coefficients*, check *Spearman*.
+1. Select **Analyses > Regression > Correlation Matrix**.
+2. Move `age` and `trestbps` into **Variables**.
+3. Under **Correlation Coefficients**, check **Spearman**.
 
 
 ![](images/01-jamovi-data-ex-1-correlation_matrix_spearman.png)
@@ -349,10 +349,10 @@ jamovi keeps the data, analyses and results together in a single .omv file. Savi
 
 Let’s now save this file as well.
 
-1. Open the File menu *(☰)* and select *Save As*.
-2. Select *Browse* and navigate to the `Analysis` folder.
+1. Open the File menu **(☰)** and select **Save As**.
+2. Select **Browse** and navigate to the `Analysis` folder.
 3. Enter a name for the file.
-4. *Save* the file as a jamovi (.omv) file.
+4. **Save** the file as a jamovi (.omv) file.
 
 ![](images/01-jamovi-data-ex-1-save-history.png)
 
@@ -361,9 +361,9 @@ Let’s now save this file as well.
 
 Visualisation with matrix of scatter plots.
 
-1. Select *Analyses > Correlation > Correlation Matrix*.
-2. Move `age`, `chol`, `oldpeak`, `thalach` and `trestbps` into *Variables*.
-3. Under *Plots*, check *Correlation Matrix*.
+1. Select **Analyses > Correlation > Correlation Matrix**.
+2. Move `age`, `chol`, `oldpeak`, `thalach` and `trestbps` into **Variables**.
+3. Under **Plots**, check **Correlation Matrix**.
 
 ![](images/01-jamovi-data-ex-2-matrix-scatterplots.png)
 
@@ -375,9 +375,9 @@ Visualisation with matrix of scatter plots.
 
 Correlation analysis of multiple variables.
 
-1. Select *Analyses > Correlation > Correlation Matrix*.
-2. Move `age`, `chol`, `oldpeak`, `thalach` and `trestbps` into *Variables*.
-3. Under *Correlation Coefficients*,uncheck *Pearson* and check *Spearman*.
+1. Select **Analyses > Correlation > Correlation Matrix**.
+2. Move `age`, `chol`, `oldpeak`, `thalach` and `trestbps` into **Variables**.
+3. Under **Correlation Coefficients**,uncheck **Pearson** and check **Spearman**.
 
 ![](images/01-jamovi-data-ex-2-matrix-scatterplots-analysis.png)
 
@@ -398,9 +398,10 @@ Part 1: Correlation
 2. Spearman’s correlation coefficient
 
 **Part 2: Simple Linear Regression**
-**1. Least squares estimation**
-**2. Hypothesis testing**
-**3. Example**
+
+1. **Least squares estimation**
+2. **Hypothesis testing**
+3. **Example**
 
 Part 3: Multiple Linear Regression
 1. Assumptions
@@ -473,8 +474,8 @@ Line can then be used to predict $Y$ from $X$.
 <!-- Least Squares Estimation -->
 ## Least Squares Estimation
 
-A good line is the one that minimises the *sum of squared
-differences* between the points and the line.
+A good line is the one that minimises the **sum of squared
+differences** between the points and the line.
 
 The smaller the sum of squared differences, the better the fit of
 the line to the data,
