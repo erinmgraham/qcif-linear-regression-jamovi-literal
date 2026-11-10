@@ -438,6 +438,7 @@ One or more predictor variables: $x_1, x_2, \ldots, x_k$
 Predicting $Y$ based on a given value of $X$
 
 $X$ = Independent / Predictor variable (continuous, categorical or nominal)
+
 $Y$ = Dependent / Outcome variable (continuous)    
 
 
@@ -458,8 +459,7 @@ Test of significance: $b$ is significantly different from zero
 ![](images/02-slr-fig-slope-intercept.png)
 
 
-Problem: To draw a straight line through the points that best
-explains the relationship.
+Problem: To draw a straight line through the points that best explains the relationship.
 
 ::: {layout-ncol=2}
 
@@ -474,11 +474,9 @@ Line can then be used to predict $Y$ from $X$.
 <!-- Least Squares Estimation -->
 ## Least Squares Estimation
 
-A good line is the one that minimises the **sum of squared
-differences** between the points and the line.
+A good line is the one that minimises the **sum of squared differences** between the points and the line.
 
-The smaller the sum of squared differences, the better the fit of
-the line to the data.
+The smaller the sum of squared differences, the better the fit of the line to the data.
 
 __Sum of squared differences:__
 
@@ -514,7 +512,7 @@ $$
 
 Coefficient $b$ is related to the correlation coefficient $r$.
 
-If $X$ and $Y$ are positively correlated, then slope `b` is positive.
+If $X$ and $Y$ are positively correlated, then slope $b$ is positive.
 
 $$
 r = b\frac{SD_x}{SD_y}
@@ -536,13 +534,11 @@ Is the slope significantly different from 0?
 |  | significant linear relationship |
 
 
-<!-- Original slide 62 -->
-## Original slide 62
+<!-- Residuals -->
+## Residuals
+- The residual for observation $i(e_i)$ is the difference between its observed and predicted value:
 
-Residuals
-- The residual for observation i (𝑒𝑒𝑖𝑖 )- is the difference between its
-observed and predicted value
-𝑒𝑒𝑖𝑖 = 𝑌𝑌𝑖𝑖 − 𝑌𝑌�𝑖𝑖
+$e_i = Y_i - \hat{Y}i$
 
 
 - Check the assumptions of regression by examining the residuals
@@ -551,136 +547,85 @@ observed and predicted value
 - Evaluate normal distribution assumption
 - Evaluate independence assumption
 - Check the presence of outliers
-64
 
+<!-- Coefficient of determination -->
+## Coefficient of determination ($R^2$)
 
+$R^2$
 
-
-
-<!-- Original slide 63 -->
-## Original slide 63
-
-Coefficient of determination (R2)
-R2
-- Represents the proportion of the dependent variable explained by
-the independent variable.
+- Represents the proportion of the dependent variable explained by the independent variable.
 - Indicates how well the model fits the data.
-Adjusted R2
-- Used for estimating explained variance in a population (≠sample).
-- Used when sample size is small and when results have to be
-generalized.
 
+**Adjusted $R^2$**
 
-65
+- Used for estimating explained variance in a population ($≠$ sample).
+- Used when sample size is small and when results have to be generalized.
 
+<!-- Example Linear Regression -->
+# Example: Effect of cigarette consumption on Coronary Heart Disease
 
+::: {layout-ncol=2}
 
+![Cig = Cigarette consumption](images/02-slr-ex-cigarettes.png)
+![CHD = Coronary Heart Disease](images/02-slr-ex-coronary_heart_disease.png)
+:::
 
-
-<!-- Original slide 64 -->
-## Original slide 64
-
-Linear Regression
-Example: Effect of cigarette consumption on Coronary Heart Disease
-
-
-
-
-Cig = Cigarette                                  CHD = Coronary
-consumption                                      Heart Disease
+                  
 Example from Landwehr & Watkins (1987) and cited in Howell (2004)
-66
 
+<!-- Simple Linear Regression -->
+## Simple Linear Regression
 
-
-
-
-<!-- Original slide 65 -->
-## Original slide 65
-
-Simple Linear Regression
-Example: Effect of cigarette consumption on Coronary Heart Disease
-Research question: How fast does CHD mortality rise depending on
-smoking?
-
-CHD ($Y$ variable) = CHD mortality rate (deaths per 10,000 per year due
-to CHD)
-Cig ($X$) = average number of cigarettes per adult per day
-
-
-
-
-67
-
-
-
-
-
-<!-- Original slide 66 -->
-## Original slide 66
-
-Simple Linear Regression
-Example: Effect of cigarette consumption on Coronary Heart Disease
-Scatter Plot with the line that best fits:
-
-
-
-
-68
-
-
-
-
-
-<!-- Original slide 67 -->
-## Original slide 67
-
-Simple Linear Regression
 Example: Effect of cigarette consumption on Coronary Heart Disease
 
-Linear regression equation:
+**Research question**: How fast does CHD mortality rise depending on smoking?
+
+CHD ($Y$ variable) = CHD mortality rate (deaths per 10,000 per year due to CHD)
+
+Cig ($X$ variable) = average number of cigarettes per adult per day
+
+![](images/02-slr-ex-cig-chd-data.png)
 
 
 
+### Scatter Plot with the line that best fits:
 
-Predicted        Intercept:       Slope:
-values           level of $Y$      rate of increase/
-of $Y$          when $X$ is 0      decrease of $Y$ predicted
-for each unit increase
-of $X$ 
-69
+![](images/02-slr-ex-scatter-best.png)
 
 
+### Linear regression equation:
+
+$$
+\hat{Y} = a + bX
+$$$
+| Term | Meaning |
+|---|---|
+| $\hat{Y}$ | **Predicted value:** predicted value of $Y$ |
+| $a$ | **Intercept:** value of $Y$ when $X = 0$ |
+| $b$ | **Slope:** predicted change in $Y$ for each one-unit increase in $X$ |
 
 
+### Linear regression equation:
 
-<!-- Original slide 68 -->
-## Original slide 68
+$$
+CHD_{pred} = a + b * Cig. cons
+$$$
 
-Simple Linear Regression
-Example: Effect of cigarette consumption on Coronary Heart Disease
+| Term | Meaning |
+|---|---|
+| CHD_{pred} | **Predicted value:** predicted value of CHD |
+| $a$ | **Intercept:** level of CHD when 0 Cig is consumed |
+| $b$ | **Slope:** rate of increase of CHD for each unit increase of Cig consumption |
 
-Linear regression equation:
 
-𝐶𝐶𝐶𝐶𝐶𝐶𝑝𝑝𝑝𝑝𝑝𝑝𝑝𝑝 = 𝑎𝑎 + 𝑏𝑏 ∗ 𝐶𝐶𝐶𝐶𝐶𝐶. 𝑐𝑐𝑐𝑐𝑐𝑐𝑐𝑐
 Predicted        Intercept:       Slope:
 values         level of CHD      rate of increase of CHD
 Of CHD         when 0 cig is     for each unit increase
 consumed         of Cig consumption
 
-70
+### Regression coefficients:
 
-
-
-
-
-<!-- Original slide 69 -->
-## Original slide 69
-
-Simple Linear Regression
-Example: Effect of cigarette consumption on Coronary Heart Disease
-
-Regression coefficients:
+![](images/02-slr-ex-cig-chd-reg-coeffs.png)
 
 
 
