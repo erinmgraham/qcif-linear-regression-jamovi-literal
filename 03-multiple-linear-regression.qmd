@@ -6,7 +6,7 @@ title: "Part 3: Multiple Linear Regression"
 
 - Extension of simple linear regression to more than one (continuous/ordinal) independent variables.
 
-![](images/04-mlr-intro-cf-slr.png)
+![](images/03-mlr-vs-slr.png)
 
 # Example - Cigarettes and coronary heart disease
 
@@ -14,7 +14,7 @@ According to the results of the linear regression, 50% of the variance in CHD mo
 
 What about the other 50%? Maybe exercise or cholesterol?
 
-![](images/04-mlr-intro-cf-slr-ex.png)
+![](images/03-mlr-vs-slr-example.png)
 
 Same way to obtain estimates of the regression coefficients (least squares), e.g. for $X_i$ independent variables:
 
@@ -124,7 +124,7 @@ $R^2_{adjusted}$:
 
 Does "ignoring problems" (ind. var 1) and "not worrying" (ind. var 2) predict "psychological distress" (dep. var)?
 
-![Neill (2001)](images/04-mlr-ex-stress.png)
+![Neill (2001)](images/03-mlr-example-psychological-distress.png)
 
 - $n = 224$ participants (Australian adolescent population).
 - $Y$: Measure of psychological distress (low scores indicated a high level of psychological distress).
@@ -132,29 +132,29 @@ Does "ignoring problems" (ind. var 1) and "not worrying" (ind. var 2) predict "p
 - $X_2$: Ignoring problems (score based on items).
 
 
-![](images/04-mlr-ex-model.png)
+![](images/03-mlr-example-model.png)
 
 Correlation Matrix: 
 
-![](images/04-mlr-ex-model-correlations.png)
+![](images/03-mlr-example-correlations.png)
 
 - Correlations among the independent variables are low (0.352).
 - Correlations between the independent and dependent variables are negative (-0.521 and -0.325).
 
 Is there a linear relationship between **all of the $X$ variables taken together** and **$Y$**?
 
-![](images/04-mlr-ex-model-hypotheses-all.png)
+![](images/03-mlr-example-overall-hypothesis.png)
 
-![](images/04-mlr-ex-model-hypotheses-all-summary.png)
+![](images/03-mlr-example-overall-hypothesis-summary.png)
 
 
 Together, "ignoring problems" and "not worrying" explain 29.5% of the variability in "psychological distress" in Australian adolescent population ($R^2_{adjusted} = 0.288$).
 
 Is there a linear relationship between **each $X$ variable** and $Y$?
 
-![](images/04-mlr-ex-model-hypotheses-each.png)
+![](images/03-mlr-example-predictor-hypotheses.png)
 
-![](images/04-mlr-ex-model-hypotheses-each-summary.png)
+![](images/03-mlr-example-predictor-hypotheses-summary.png)
 
 "Not Worrying" predicts about 3 times as much variance in "psychological distress" than "ignoring the problem". Both are significant, negative predictors of mental health.
 
@@ -165,7 +165,7 @@ The increase of 1 unit of "Ignoring problem" is estimated to decrease 4.7 units 
 $$
 Psychol. Distress = 138 - 11.5 * Not Worrying - 4.7 * Ignoring Problems
 $$
-![](images/04-mlr-ex-model-conf-int.png)
+![](images/03-mlr-example-confidence-intervals.png)
 
 
 Psychological Distress is reduced by between 8.5 and 14.5 units per 1-unit increase of "Not Worrying" keeping everything else constant.
@@ -192,7 +192,7 @@ Psychological Distress is reduced by between 1.2 and 8.2 units per 1-unit increa
 TODO: Fix format
 -->
                     
-![](images/03-your-turn.png)
+![](images/02-your-turn.png)
                               
                                   
 # Exercise 5 - Identify potential predictors of Systolic Blood Pressure
@@ -212,7 +212,7 @@ TODO: Fix format
 
 1. Matrix of correlations for continuous variables (from Exercise 2).
 
-![](images/05-mlr-1-step-corr-matrix.png)
+![](images/03-ex5-correlation-matrix.png)
 
 
 Observations:
@@ -236,7 +236,7 @@ independent variables.
 5. Move `trestbps` into **Dependent Variable** and `sex` into **Factors**.
 6. Repeat Steps 2-3 swapping `sex` with `fbs`.
 
-![](images/05-mlr-1-step-anova.png)
+![](images/03-ex5-anova-output.png)
 
 
 Variables Age, Gender, Cholesterol, Level and FBS are potential predictors ($p < 0.2$). 
@@ -265,12 +265,12 @@ Could also use R inside Jamovi.
 1. Under **Model Coefficients**, check **ANOVA test**.
 1. In the **Results** panel, under **Omnibus ANOVA Test**, find the independent variable with the largest p-value, e.g. `thalach` $p = 0.869$
 
-![](images/05-mlr-1-step-model-full.png)
+![](images/03-ex5-full-model.png)
 
 1. Remove `thalach` from **Block 1** and notice the remaining p-values change.
 1. Continue removing independent variables one by one based on largest p-values until any remaining variables that have $p < 0.05$.
 
-![](images/05-mlr-1-step-model-final.png)
+![](images/03-ex5-selected-model.png)
 
 
 1. Under **Assumption Checks**, check **Collinearity statistics** and **Q-Q plot of residuals**.
@@ -280,18 +280,18 @@ Could also use R inside Jamovi.
 1. From the top menu, select **Plots > Scatter Plot**.
 1. Move `Predicted values` into **X-Axis** and `Residuals` into **Y-Axis**.
 
-![](images/05-mlr-1-step-model-opts-coefs-save.png)
+![](images/03-ex5-model-options.png)
 
 ## Model Summary
 
-![](images/05-mlr-1-step-model-final-summary.png)
+![](images/03-ex5-selected-model-summary.png)
 
 - **Adj R square**: 0.119: Approx. 12% of the variability in SBP is explained by the combination of Age and FBS.
 - **p-value**: < 0.05. Meaning that the regression model predicts SBP significantly well.
 
 ## Coefficients
 
-![](images/05-mlr-1-step-model-coefs.png)
+![](images/03-ex5-coefficients-output.png)
 
 - Final model selected: $$\hat{SBP} = 103.3 + 0.52 * Age + 9.09 FBS$$
 - SBP increases by 0.52 units for every unit increase of age when all other variables in the model kept constant.
@@ -331,7 +331,7 @@ $$
 
 Residuals vs predicted values plot
 
-![](images/05-mlr-1-check-plot-resid.png)
+![](images/03-ex5-residuals-plot.png)
 
 A well-behaved "residuals vs. predicted values plot" roughly form a "horizontal band" around the residual = 0 line. This suggests that the outcome and predictor variables share a linear relationship, variances of the error terms are equal (Homoscedastic), and observations are independent.
 
@@ -339,7 +339,7 @@ A well-behaved "residuals vs. predicted values plot" roughly form a "horizontal 
 
 Normal probability plot of residuals
 
-![](images/05-mlr-1-check-normal-q-q.png)
+![](images/03-ex5-residuals-qq.png)
 
 A well-behaved "Normal Q-Q plot" roughly lines the points along the diagonal line. This suggests that the residuals are normally distributed.
 
@@ -348,7 +348,7 @@ A well-behaved "Normal Q-Q plot" roughly lines the points along the diagonal lin
 
 Coefficients and Excluded Variables
 
-![](images/05-mlr-1-check-multicollinearity.png)
+![](images/03-ex5-multicollinearity.png)
 
 - Check the Variance Inflation Factor (VIF) value of the included regressors (independent variables).
 - Rule of thumb: VIF valuesv< 5 indicate absence of multicollinearity in the model.
@@ -361,7 +361,7 @@ TODO: Jamovi does not do VIF of excluded regressors
 
 Residuals vs predicted values plot
 
-![](images/05-mlr-1-check-plot-resid.png)
+![](images/03-ex5-residuals-plot.png)
 
 - If no one residual stands out from the basic random pattern of residuals in the "residuals vs. predicted values plot". This suggests that there are no outliers.
 
@@ -404,11 +404,11 @@ independent variables.
 1. From the top menu, select **Plots > Scatter Plot**.
 1. Move `Predicted values` into **X-Axis** and `Residuals` into **Y-Axis**.
 
-![](images/05-mlr-2-a-prior-options.png)
+![](images/03-ex5-apriori-model-options.png)
 
 ## Model Summary
 
-![](images/05-mlr-2-step-model-final-summary.png)
+![](images/03-ex5-selected-model-summary.png)
 
 - **Adj R square**: 0.118: Approx. 12% of the variability in SBP is explained by the combination of independent variables.
 - **p-value**: < 0.05. Meaning that the regression model predicts SBP significantly well.
@@ -416,7 +416,7 @@ independent variables.
 
 ## Coefficients
 
-![](images/05-mlr-2-step-model-coefs.png)
+![](images/03-ex5-coefficients-output.png)
 
 - SBP level equals 104.9 mmHg when all the other variables in the model = 0
 - SBP increases by 0.41 units for each unit increase of age (sig. at 10%)
@@ -427,21 +427,21 @@ independent variables.
 
 ## Check: Residuals vs predicted values plot
 
-![](images/05-mlr-2-check-plot-resid.png)
+![](images/03-ex5-apriori-residuals-plot.png)
 
 - Dots roughly form a "horizontal band" around the residual = 0 line. This suggests that the outcome and predictor variables share a linear relationship, variances of the error terms are equal (Homoscedastic), observations are independent, and there are no outliers.
 
 
 ## Check: Normal probability plot of residuals
 
-![](images/05-mlr-2-check-normal-q-q.png)
+![](images/03-ex5-apriori-residuals-qq.png)
 
 - Dots roughly line up along the diagonal line. This suggests that the residuals are normally distributed.
 
 
 ## Check: Multicollinearity
 
-![](images/05-mlr-2-step-vif.png)
+![](images/03-ex5-apriori-vif.png)
 
 - All VIF values < 5. Multicollinearity is not present in this model.
 
@@ -485,7 +485,7 @@ Determinants of Plasma Beta-Carotene Levels
 4. Move `age`, `quetelet`, `calories`, `fat`, `fiber`, `alcohol`, `cholesterol`, `betadiet`, `retdiet`, `betaplasma`, `retplasma` into **Variables**.
 5. Under **Correlation Coefficients**, uncheck Pearson and check Spearman.
 
-![](images/06-mlr-corr-matrix.png)
+![](images/03-ex6-correlation-matrix.png)
 
 
 Observations:
@@ -493,7 +493,7 @@ Observations:
 Variables age (+), quetelet (-), fat(-), cholesterol (-), betadiet (+) and fibre (+) have the highest correlations with betaplasma (dependent variable in the model).
 
 
-![](images/06-mlr-corr-matrix-highly.png)
+![](images/03-ex6-correlation-matrix-highlights.png)
 
 Observations:
 
@@ -508,7 +508,7 @@ Variables Fat, Cholesterol, and Calories are highly correlated (risk of multicol
 1. Under **Model Coefficients**, check **ANOVA test**.
 1. In the **Results** panel, under **Omnibus ANOVA Test**, find the independent variable with the largest p-value, e.g. `fat` $p = 0.958$
 
-![](images/06-mlr-untrans-coefs-all.png)
+![](images/03-ex6-untransformed-coefficients-all.png)
 
 1. Remove `fat` from **Block 1** and notice the remaining p-values change.
 1. Continue removing independent variables one by one based on largest p-values until any remaining variables that have $p < 0.05$.
@@ -531,7 +531,7 @@ We will therefore fit this selected model in jamovi and continue with the origin
 
 ## Coefficients
 
-![](images/06-mlr-step-model-coefs.png)
+![](images/03-ex6-selected-model-coefficients.png)
 
 The final model includes variables **vitamin use, Quetelet’s index (BMI), beta-carotene consumed, cholesterol consumed**, and **fibre consumed**.
 
@@ -541,7 +541,7 @@ Note, however, that `vituse` is a categorical variable with three categories.
 2. Double-click the `vituse` column.
 3. Check that **Measure type** is set to **Nominal** and the **Levels** are ordered as desired.
 
-![](06-mlr-vituse-data-variable.png)
+![](03-ex6-vituse-variable-setup.png)
 
 4. In the **Results** panel, click anywhere within the **Model Coefficients** table to reopen the **Analyses** panel options.
 5. Move `vituse` out of **Covariates** and into **Factors**.
@@ -553,37 +553,37 @@ Note, however, that `vituse` is a categorical variable with three categories.
 
 ## Coefficients
 
-![](images/06-mlr-untrans-coefs-1.png)
+![](images/03-ex6-untransformed-coefficients-1.png)
 
 - Plasma beta-carotene seems 83.2 units lower for patients not using vitamin (vituse = 3) vs. those using it fairly often (vituse = 1), keeping everything else constant.
 - Plasma beta-carotene seems to decrease by 5.63 units for every unit increase of BMI, keeping everything else constant.
 
-![](images/06-mlr-untrans-coefs-2.png)
+![](images/03-ex6-untransformed-coefficients-2.png)
 
 - With every unit increase in beta carotene consumed in diet, Plasma beta-carotene is increased by 0.018 units, keeping everything else constant.
 - Plasma beta-carotene seems to decrease by 0.20 with every unit increase in cholesterol consumption, keeping everything else constant.
 
-![](images/06-mlr-untrans-coefs-3.png)
+![](images/03-ex6-untransformed-coefficients-3.png)
 
 - Plasma beta-carotene seems to increase by 5.17 units with every unit increase in fiber consumption, keeping everything else constant.
 
 ## Check: Residuals vs predicted values plot
 
-![](images/06-mlr-untrans-check-plot-resid.png)
+![](images/03-ex6-untransformed-residuals.png)
 
 Dots roughly form a cone shaped pattern. This suggests that variances of the error terms are **non-constant** (Heteroscedastic).
 
 
 ## Check: Normal probability plot of residuals
 
-![](images/06-mlr-untrans-check-normal-q-q.png)
+![](images/03-ex6-untransformed-residuals-qq.png)
 
 Dots do not line up along the diagonal line. This suggests that the residuals are not normally distributed.
 
 
 ## Check: Multicollinearity
 
-![](images/06-mlr-untrans-vif.png)
+![](images/03-ex6-untransformed-vif.png)
 
 - All VIF values < 5. Multicollinearity is not present in this model.
 - Not all multiple linear model assumptions hold. Results are unlikely to be accurate.
@@ -601,21 +601,21 @@ jamovi uses a density plot (kernel density estimate) rather than a rigid theoret
 To check normality, use Q-Q plots or Normality tests (Shpairo-Wilk).
 -->
 
-![](images/06-mlr-hist-betaplamsa.png)
+![](images/03-ex6-betaplasma-histogram.png)
 
 
 **Reminder**
 
 Sometimes data are non-normally distributed but closely related **log-normally** distributed.
 
-![](images/06-mlr-log-normal.png)
+![](images/03-ex6-log-transform-concept.png)
 
 - Distribution **right-skewed**
 - The logarithm of the data is thus normal
 
 The **log-transformation** of data is very common, mostly to eliminate skewness in data.
 
-![](images/06-mlr-log-normal-example.png)
+![](images/03-ex6-log-transform-example.png)
 
 
 Other kinds of normalization:
@@ -644,11 +644,11 @@ $x_{transf} = x^2$
 4. Change the variable name from `X` to `logbetaplasma`
 5. Click **$f_x$** to insert the **Math** function **LN()** using a double-click. Place your cursor inside the brack and double-click on the variable `betaplasma` to add it to the formula. Use your keyboard to add "+1" inside the bracket (since there’s a `betaplasma` value of 0).
 
-![](images/06-mlr-add-computed-variable-logbetaplasma.png)
+![](images/03-ex6-compute-log-betaplasma.png)
 
 In the **Data** panel, notice `logbetaplasma` was added.
 
-![](images/06-mlr-add-computed-variable-logbetaplasma-data.png)
+![](images/03-ex6-log-betaplasma-data.png)
 
 
 ## Check: Distribution of logbetaplasma
@@ -656,11 +656,11 @@ In the **Data** panel, notice `logbetaplasma` was added.
 1. From the top menu, select **Plots > Histogram**.
 2. Move `logbetaplasma` into **Variable** and check **Show Density**.
 
-![](images/06-mlr-hist-logbetaplamsa.png)
+![](images/03-ex6-betaplasma-histogram.png)
 
 Distribution of beta plasma and log beta plasma
 
-![](images/06-mlr-hist-betaplamsa-logbetaplamsa.png)
+![](images/03-ex6-betaplasma-log-comparison.png)
 
 ## Regression with log-transformed Beta-Carotene as dependent variable
 
@@ -698,7 +698,7 @@ We will therefore fit this selected model in jamovi and continue with the origin
 
 ## Coefficients
 
-![](images/06-mlr-ln-coefs.png)
+![](images/03-ex6-log-model-coefficients.png)
 
 - Dependent variable (`logbetaplasma`) has been log-transformed.
 - The interpretation of the regression coefficients is different.
@@ -714,31 +714,31 @@ The interpretation of the regression coefficients depends on the **model specifi
 | Linear-log regression | $Y = a + Bln(X)$ | 1% change in $X$ leads to a $(B/100)$ unit change in $Y$ |
 | Log-log regression | $ln(Y) = a + Bln(X)$ | 1% change in $X$ leads to a $B%$ change in $Y$ |
 
-![](images/06-mlr-ln-interpretation.png)
+![](images/03-ex6-log-model-interpretation.png)
 
 ## Coefficients
 
-![](images/06-mlr-ln-coefs-bmi-chol.png)
+![](images/03-ex6-log-model-coefficients-bmi-cholesterol.png)
 
 - logbetaplasma seems to decrease by 0.032 units for every unit increase of BMI or betaplasma decreases by (100*0.032)% = 3.2% for every unit increase of BMI. Keeping everything else constant.
 - betaplasma seems to decrease by (100*0.001)% = 0.1% for every unit increase in cholesterol consumed. Keeping everything else constant.
 
-![](images/06-mlr-ln-coefs-fiber-beta.png)
+![](images/03-ex6-log-model-coefficients-fiber-betadiet.png)
 - betaplasma seems to decrease by (100*0.02)% = 2% for every unit increase of fibre consumed. Keeping everything else constant. 
 - betaplasma seems to increase by (100*0.000071)% = 0.007% for every unit increase in beta-carotene in diet. Keeping everything else constant.
 
-![](images/06-mlr-ln-coefs-vituse-smoke.png)
+![](images/03-ex6-log-model-coefficients-vituse-smoking.png)
 
 - betaplasma seems to be (100*0.253)% = 25.3% lower for patients not using vitamine vs. patients using it often. Keeping everything else constant.
 - betaplasma seems to be (100*0.286)% = 28.6% lower for current smoker patients vs. non-smoker patients. Keeping everything else constant.
 
 ## Check: Residuals vs predicted values plot
 
-![](images/06-mlr-log-check-plot-resid.png)
+![](images/03-ex6-log-model-residuals.png)
 
 - Dots roughly form a "horizontal band" around the residual = 0 line. This suggests that the outcome and predictor variables share a linear relationship, variances of the error terms are equal (Homoscedastic), and observations are independent.
 
-![](images/06-mlr-log-check-plot-resid-outlier.png)
+![](images/03-ex6-log-model-residuals-outlier.png)
 
 - There is one noticeable point that can be considered an outlier.
 - Subject 257 seems to have a high influence on the model (it has 0 level of Plasma beta-carotene).
@@ -750,13 +750,13 @@ The interpretation of the regression coefficients depends on the **model specifi
 1. Select **Data > Filters**.
 2. Click **$f_x$** to insert the **Logical** function **IF** using a double-click. Place your cursor inside the brack and double-click on the variable `betaplasma` to add it to the formula. Use your keyboard to add ">0" inside the bracket (since there’s a `betaplasma` value of 0).
 
-![](images/06-mlr-filter-betaplasma-0.png)
+![](images/03-ex6-filter-betaplasma-zero.png)
 
 In the **Results** panel for this analysis, check that the **Scatter Plot** is no longer showing the outlier.
 
 Scroll up to find the **Model Coefficients** table has also been updated.
 
-![](images/06-mlr-ln-coefs-rm-outlier.png)
+![](images/03-ex6-log-model-coefficients-outlier-removed.png)
 
 - Overall, coefficients of all variables remained similar to previous estimation.
 - Beta-carotene consumed is now not-significant (effect of the outlier was giving us a false discovery previously).
@@ -764,19 +764,19 @@ Scroll up to find the **Model Coefficients** table has also been updated.
 
 ## Check: Residuals vs predicted values plot
 
-![](images/06-mlr-log-check-plot-resid-outlier-rm.png)
+![](images/03-ex6-log-model-residuals-outlier-removed.png)
 
 - Dots roughly form a "horizontal band" around the residual = 0 line. This suggests that the outcome and predictor variables share a linear relationship, variances of the error terms are equal (Homoscedastic), and observations are independent. Outliers are no longer an issue.
 
 ## Check: Normal probability plot of residuals
 
-![](images/06-mlr-ln-check-normal-q-q.png)
+![](images/03-ex6-log-model-residuals-qq.png)
 
 - Dots roughly line up along the diagonal line. This suggests that the residuals are normally distributed.
 
 ## Check: Multicollinearity
 
-![](images/06-mlr-ln-vif.png)
+![](images/03-ex6-log-model-vif.png)
 
 - All VIF values < 5. Multicollinearity is not present in this model. 
 

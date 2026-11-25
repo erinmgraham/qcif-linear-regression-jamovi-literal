@@ -6,9 +6,9 @@ title: "Part 2: Simple Linear Regression"
 
 ::: {layout-ncol=2}
 
-![](images/02-linear-cartoon-1.jpeg)
+![](images/02-slr-concept-cartoon-1.jpeg)
 
-![](images/02-linear-cartoon-2.jpeg)
+![](images/02-slr-concept-cartoon-2.jpeg)
 
 :::
 
@@ -50,16 +50,16 @@ where:
 
 Test of significance: $b$ is significantly different from zero
 
-![](images/02-slr-fig-slope-intercept.png)
+![](images/02-slr-slope-intercept.png)
 
 
 Problem: To draw a straight line through the points that best explains the relationship.
 
 ::: {layout-ncol=2}
 
-![](images/02-slr-fig-best-not-good.png)
+![](images/002-slr-poor-fit-example.png)
 
-![](images/02-slr-fig-best-good.png)
+![](images/02-slr-good-fit-example.png)
 
 :::
 
@@ -82,7 +82,7 @@ Blue line:
 
 (1-2)^2 + (4-3)^2 + (4-4.5)^2 + (7-6)^2 + (8-7.5)^2 = 3.5
 
-![](images/02-slr-fig-best-calculate.png)
+![](images/02-slr-least-squares-calculation.png)
 
 
 ## Least Squares Estimation (Background Information)
@@ -155,9 +155,9 @@ $R^2$
 
 ::: {layout-ncol=2}
 
-![Example from Landwehr & Watkins (1987) and cited in Howell (2004)](images/02-slr-ex-cigarettes.png)
+![Example from Landwehr & Watkins (1987) and cited in Howell (2004)](images/02-slr-example-cigarettes.png)
 
-![](images/02-slr-ex-coronary_heart_disease.png)
+![](images/02-slr-example-coronary-heart-disease.png)
 
 :::
 
@@ -167,12 +167,12 @@ CHD ($Y$ variable) = CHD mortality rate (deaths per 10,000 per year due to CHD)
 
 Cig ($X$ variable) = average number of cigarettes per adult per day
 
-![](images/02-slr-ex-cig-chd-data.png)
+![](images/02-slr-example-cigarettes-chd-data.png)
 
 
 ## Scatter Plot with the line that best fits
 
-![](images/02-slr-ex-scatter-best.png)
+![](images/02-slr-example-best-fit-scatterplot.png)
 
 
 ## Linear regression equation:
@@ -202,7 +202,7 @@ $$
 
 ## Regression coefficients:
 
-![](images/02-slr-ex-cig-chd-reg-coeffs.png)
+![](images/02-slr-example-cigarettes-chd-coefficients.png)
 
 p-value < 0.05 means $b$ is significantly different from zero.
 
@@ -234,7 +234,7 @@ We predict **14.61 / 10,000** people will die of CHD per annum in a country with
 
 **Residuals** are the vertical distance between actual and predicted values.
 
-![](images/02-slr-fig-pred-resid.png)
+![](images/02-slr-predicted-values-residuals.png)
 
 $X = 6$ cigarettes per adult per day
 
@@ -260,7 +260,7 @@ Visualisation with scatter plot.
 
 The scatter plot allows one to check if there is a linear relationship (obtained in Exercise 1).
 
-![](images/03-slr-ex-cig-age-scatter-annot.png)
+![](images/02-slr-example-cigarettes-age-scatterplot-annotated.png)
 
 ## Estimation of parameters
 
@@ -269,7 +269,7 @@ The scatter plot allows one to check if there is a linear relationship (obtained
 3. Under **Model Fit**, check **$R$**, **$R^2$**, and **$R^2_{adjusted}$**.
 4. Under **Model Coefficients**, check **ANOVA test** and **Confidence interval**. Leave the interval at 95%.
 
-![](images/03-slr-ex-3-model-options.png)
+![](images/02-ex3-regression-options.png)
 
 ## Model Summary
 
@@ -280,14 +280,14 @@ Model Fit Measures:
 - $R^2_{adjusted}$: **Coefficient of determination** of **0.09**, meaning that `Age` accounts for *~ 9%* of the variation of `SBP`.
 
 
-![](images/03-slr-ex-3-model-output.png)
+![](images/02-ex3-model-summary.png)
 
 ANOVA Test:
 
 - $p$: **Significance** level associated to F-ratio. It is < 0.05. Meaning that the regression model predicts `SBP` significantly well.
 
 
-![](images/03-slr-ex-3-model-output-anova.png)
+![](images/02-ex3-anova-output.png)
 
 
 Model Coefficients:
@@ -299,7 +299,7 @@ Model Coefficients:
 - **95% C.I. for $b$**: SBP level increases by between **0.24** and **0.97** mmHg by one year increase in age.
 
 
-![](images/03-slr-ex-3-model-output-coefs.png)
+![](images/02-ex3-coefficients-output.png)
 
 
 ## Confidence and prediction
@@ -312,12 +312,12 @@ Model Coefficients:
 1. In the **Results** panel, click anywhere within the **Linear Regression** results section to reopen the **Analyses** panel options.
 2. Under **Save**, check **Predicted Values** and **Residuals**.
 
-![](images/03-slr-ex-3-model-options-save.png)
+![](images/02-ex3-save-predicted-residuals.png)
 
 3. Select **Data** from the top menu. 
 4. Scroll to the right of the data frame to view two additional columns for each of the items selected.
 
-![](images/03-slr-ex-3-model-save-new-cols.png)
+![](images/02-ex3-predicted-residual-columns.png)
 
 
 New variables were generated:
@@ -414,12 +414,12 @@ Plot residuals vs. predictor variable.
 - Select **Linear** for the Method
 - Check with or without Confidence interval
 
-![](images/03-slr-ex-3-check-plot-resid.png)
+![](images/02-ex3-residuals-plot.png)
 
 A well-behaved "residuals vs. predictor plot" will bounce randomly and form a roughly horizontal band around the residual = 0 line.
 
 
-![](images/03-slr-ex-3-check-plot-resid-examples.png)
+![](images/02-ex3-residual-pattern-examples.png)
 
 ## Check: Normality of residuals
 
@@ -428,7 +428,7 @@ Check the residual Q-Q plot.
 1. In the **Results** panel, click anywhere within the **Linear Regression** results section to reopen the **Analyses** panel options.
 2. Under **Assumption Checks** check **Q-Q plot of residuals**.
 
-![](images/03-slr-ex-3-check-normal-q-q.png)
+![](images/02-ex3-residuals-qq.png)
 
 
 A well-behaved "Normal Q-Q plot" roughly lines the points along the diagonal line. This suggests that the residuals are normally distributed.
@@ -439,29 +439,29 @@ A well-behaved "Normal Q-Q plot" roughly lines the points along the diagonal lin
 1. From the top menu, select **Plots > Scatter Plot**.
 2. Move `Predicted values` into **X-Axis** and `Residuals` into **Y-Axis**.
 
-![](images/03-slr-ex-3-check-plot-pred-resid.png)
+![](images/02-ex3-residuals-vs-predicted.png)
 
 A well-behaved "residuals vs. fitted values plot" roughly form a "horizontal band" around the residual = 0 line. This suggests that the variances of the error terms are equal, and observations are independent. No one residual stands out from the basic random pattern of residuals (no outliers).
 
 Residual analysis for Homoscedasticity
 
-![](images/03-slr-ex-3-check-plot-variance-examples.png)
+![](images/02-ex3-variance-pattern-examples.png)
 
 Residual analysis for Independence of observations
 
-![](images/03-slr-ex-3-check-plot-independent-examples.png)
+![](images/02-ex3-independence-examples.png)
 
 No extreme outliers
 
 Cases with extreme values that differ greatly from the rest of your sample.
 
-![](images/03-slr-ex-3-check-outlier-cartoon.png)
+![](images/02-ex3-outlier-concept.png)
 
 Even a few outliers can dramatically change estimates of the slope ($b$).
 
-![](images/03-slr-ex-3-check-outlier-effect.png)
+![](images/02-ex3-outlier-effect.png)
 
-![](images/03-slr-ex-3-check-outlier-effect-remove.png)
+![](images/02-ex3-outlier-effect-removed.png)
 
 Outliers can result from:
 
@@ -483,7 +483,7 @@ If you see no reason why your outliers are erroneous measurements
 | Outliers and influential observations | Check residuals vs. fitted values plot | Yes |
 
 
-![](images/03-your-turn.png)
+![](images/02-your-turn.png)
 
 # Exercise 4 - Is Systolic Blood Pressure (SBP) associated with Gender?
 
@@ -493,7 +493,7 @@ Visualisation with box plots.
 2. Move `trestbps` into **Variable** and `sex` into **Grouping Variable 1**.
 
 
-![](images/03-slr-ex-4-box-plot.png)
+![](images/02-ex4-trestbps-sex-boxplot.png)
 
 
 ## Estimation of parameters
@@ -503,7 +503,7 @@ Visualisation with box plots.
 3. Under **Model Fit**, check **$R$**, **$R^2$**, and **$R^2_{adjusted}$**.
 4. Under **Model Coefficients**, check **ANOVA test** and **Confidence interval**. Leave the interval at 95%.
 
-![](images/03-slr-ex-4-model-options.png)
+![](images/02-ex4-regression-options.png)
 
 
 ## Model Summary
@@ -512,13 +512,13 @@ Model Fit Measures:
 
 - $R^2_{adjusted}$: **Coefficient of determination** of **0.012**, meaning that gender accounts for *~ 1.2%* of the variation of `SBP`.
 
-![](images/03-slr-ex-4-model-output.png)
+![](images/02-ex4-model-summary.png)
 
 ANOVA Test:
 
 - $p$: **Significance** level is > 0.05. Meaning that the regression model does not predict `SBP` significantly well.
 
-![](images/03-slr-ex-4-model-output-anova.png)
+![](images/02-ex4-anova-output.png)
 
 Model Coefficients:
 
@@ -529,7 +529,7 @@ Gender has an insignificant effect on `SBP` ($p > 0.05$). $b = -5.07$ is the ave
 - **95% C.I. for $b$**: There was no difference in `SBP` between males and females which was confirmed by C.I. containing the value 0.
 
 
-![](images/03-slr-ex-4-model-output-coefs.png)
+![](images/02-ex4-coefficients-output.png)
 
 
-![](images/04-break-lunch.png)
+![](images/02-break-lunch.png)

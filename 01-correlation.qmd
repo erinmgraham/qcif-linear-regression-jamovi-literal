@@ -4,7 +4,7 @@ title: "Part 1: Correlation"
 
 # Correlation
 
-![](images/01-correlation_cartoon.png)
+![](images/01-correlation-concept-cartoon.png)
 
 
 ## Introduction
@@ -28,7 +28,7 @@ Associations can be:
 - **Negative**: An increase in one variable is associated with a decrease in the
 other.
 
-![](images/01-correlation_plots_pos_neg_none.png)
+![](images/01-correlation-direction-examples.png)
 
 
 ## Parametric & Non-Parametric
@@ -97,26 +97,26 @@ individual.
 - Useful in the early stage of analysis when exploring data and
 determining if a linear regression analysis is appropriate.
 
-![](images/01-correlation_plots_r.png)
+![](images/01-correlation-strength-examples.png)
 
 
 # Exercise 1 - Are age and resting systolic blood pressure (SBP) correlated?
 
 SBP and Age
 
-![](images/01-data-ex-1-age-trestbps.png)
+![](images/01-ex1-age-trestbps-data.png)
 
 
 ## Visualisation with scatter plots
 
 1. From the top menu, select **Plots > Scatter Plot**.
 
-![](images/01-data-ex-1-plots-scatter.png)
+![](images/01-ex1-age-trestbps-scatterplot.png)
 
 
 2. Move `age` into X-axis and `trestbps` to Y-axis produce a basic Scatter Plot.
 
-![](images/01-data-ex-1-plots-scatter-vars.png)
+![](images/01-ex1-scatterplot-options.png)
 
 
 3. Under **General Options** check **Show line**.
@@ -124,7 +124,7 @@ SBP and Age
 - Select **Linear** for the Method
 - Check with or without Confidence interval
 
-![](images/01-data-ex-1-plots-scatter-line.png)
+![](images/01-ex1-age-trestbps-scatterplot-fit.png)
 
 
 ## Normality Check - Shapiro-Wilk test
@@ -136,7 +136,7 @@ Checking distribution of variables: Shapiro-Wilk test for Normality.
 3. Under **Statistics**, check **Shapiro-Wilk test**.
 4. Under **Plots**, check **Histogram** and **Q-Q plot**.
 
-![](images/01-data-ex-1-descriptives.png)
+![](images/01-ex1-descriptives-output.png)
  
 The **Results** panel will display a **Descriptives** table, histogram, and normality plots  (Normal Q-Q plots) for each of the variables selected.
 
@@ -144,9 +144,9 @@ Do they look normally distributed?
  
 ::: {layout-ncol=2}
 
-![](images/01-data-ex-1-plots-histogram-age.png)
+![](images/01-ex1-age-histogram.png)
 
-![](images/01-data-ex-1-plots-histogram-trestbps.png)
+![](images/01-ex1-trestbps-histogram.png)
 
 :::
 
@@ -165,7 +165,7 @@ For brevity, we will not be doing this for every example in this workshop.
 
 The results of the Shapiro-Wilk test are presented in the **Descriptives** table in the **Results** panel.
 
-![](images/01-data-ex-1-descriptives-shapiro.png)
+![](images/01-ex1-shapiro-wilk-output.png)
   
 Both variables have a p-value of $p < 0.05$. 
 
@@ -178,9 +178,9 @@ Therefore we must use Spearman’s test.
 3. Under **Correlation Coefficients**, check **Spearman**.
 
 
-![](images/01-data-ex-1-correlation_matrix_spearman.png)
+![](images/01-ex1-spearman-correlation-output.png)
 
-![](images/01-data-ex-1-spearman.png)
+![](images/01-ex1-spearman-options.png)
 
 Interpretation: Spearman’s correlation is used to determine the
 relationship between an individual’s age and their resting SBP.
@@ -201,7 +201,7 @@ Let’s now save this file as well.
 3. Enter a name for the file.
 4. **Save** the file as a jamovi (.omv) file.
 
-![](images/01-data-ex-1-save-history.png)
+![](images/01-ex1-save-analysis.png)
 
 # Exercise 2 - Is Systolic Blood Pressure associated with other continuous variables of interest?
 
@@ -211,9 +211,9 @@ Let’s now save this file as well.
 2. Move `age`, `chol`, `oldpeak`, `thalach` and `trestbps` into **Variables**.
 3. Under **Plots**, check **Correlation Matrix**.
 
-![](images/01-data-ex-2-matrix-scatterplots.png)
+![](images/01-ex2-correlation-matrix-analysis.png)
 
-![](images/01-data-ex-2-matrix-scatterplots-plot.png)
+![](images/01-ex2-scatter-matrix-plot.png)
 
 
 ## Correlation analysis of multiple variables.
@@ -222,11 +222,11 @@ Let’s now save this file as well.
 2. Move `age`, `chol`, `oldpeak`, `thalach` and `trestbps` into **Variables**.
 3. Under **Correlation Coefficients**, uncheck **Pearson** and check **Spearman**.
 
-![](images/01-data-ex-2-matrix-scatterplots-analysis.png)
+![](images/01-ex2-scatter-matrix-options.png)
 
-![](images/01-data-ex-2-matrix-scatterplots-table.png)
+![](images/01-ex2-correlation-matrix-output.png)
 
 
 # Break for Morning Tea
 
-![](images/01-break.jpeg) 
+![](images/01-break-morning-tea.jpeg) 
