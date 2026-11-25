@@ -4,12 +4,10 @@ subtitle: "Literal migration draft from the SPSS workshop"
 ---
 
 ::: {.callout-warning title="Migration draft"}
-This version deliberately preserves the original slide order, repeated signposting, exercises and wording as closely as possible. Items needing review are marked as internal comments.
+This version deliberately preserves the original slide order, only with reduced signposting. Exercises and wording are as as close to original as possible. Items needing review are marked as internal comments with 'TODO's.
 :::
 
-# Exploring and Predicting Using Linear Regression in jamovi
-
-We acknowledge and celebrate the First Australians on whose traditional lands we meet, and we pay our respect to the Elders past and present.
+![](images/00-setup-acknowledgement-of-country.png)
 
 # Overview
 

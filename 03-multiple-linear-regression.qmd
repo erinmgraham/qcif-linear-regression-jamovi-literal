@@ -499,6 +499,7 @@ Observations:
 
 Variables Fat, Cholesterol, and Calories are highly correlated (risk of multicollinearity).                         
 <!--
+TODO Decide how to handle step wise in jamovi; leaving here as reminder
 1. Select **Analyses > Regression > Linear Regression**.
 1. Move `betaplasma` into **Dependent Variable**
 1. Move `age`, `quetelet`, `calories`, `fat`, `fiber`, `alcohol`, `cholesterol`, and `betadiet` into **Covariates**.
