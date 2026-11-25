@@ -3,6 +3,16 @@ project:
 
 website:
   title: "Linear Regression with jamovi"
+  sidebar:
+    contents:
+      - href: index.qmd
+        text: Home
+      - href: 01-correlation.qmd
+        text: "Part 1: Correlation"
+      - href: 02-simple-linear-regression.qmd
+        text: "Part 2: Simple Linear Regression"
+      - href: 03-multiple-linear-regression.qmd
+        text: "Part 3: Multiple Linear Regression"
 
 format:
   html:
